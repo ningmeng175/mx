@@ -2,8 +2,8 @@
  * @Author: liuyr 
  * 商家列表页面
  * @Date: 2019-12-23 17:11:53 
- * @Last Modified by: liuyr
- * @Last Modified time: 2019-12-27 14:51:43
+ * @Last Modified by: zhouyj
+ * @Last Modified time: 2019-12-28 19:55:26
  */
 <template>
   <div id="businessList">
@@ -13,11 +13,16 @@
           v-for="item in provinceData"
           :key="item.id"
           :label="item.name"
-          :value="item.name"
-        ></el-option>
+          :value="item.name">
+          <span style="float: left">{{ item.name }}</span>
+          <span style="float: right; color: #8492a6; font-size: 13px">{{ item.name }}</span>
+        </el-option>
       </el-select>
       <el-select @change="cityChange" size="mini" v-model="city" clearable placeholder="城市">
-        <el-option v-for="item in cityData" :key="item.id" :label="item.name" :value="item.name"></el-option>
+        <el-option v-for="item in cityData" :key="item.id" :label="item.name" :value="item.name">
+          <span style="float: left">{{ item.name }}</span>
+          <span style="float: right; color: #8492a6; font-size: 13px">{{ item.name }}</span>
+        </el-option>
       </el-select>
       <el-select @change="industryChange" size="mini" v-model="industry" clearable placeholder="行业">
         <el-option v-for="item in industryData" :key="item" :label="item" :value="item"></el-option>
@@ -44,13 +49,13 @@
         <el-table-column align="center" prop="scale" label="公司规模"></el-table-column>
         <el-table-column align="center" label="详情">
           <template slot-scope="scope">
-            <el-button @click="toSee(scope.row)" type="text" size="small">查看</el-button>
+            <el-button @click="toSee(scope.row)" type="text" size="small" icon="el-icon-search">查看</el-button>
           </template>
         </el-table-column>
-        <el-table-column align="center" label="操作" width="100">
+        <el-table-column align="center" label="操作" width="150">
           <template slot-scope="scope">
-            <el-button type="text" @click="toEdit(scope.row)" size="small">编辑</el-button>
-            <el-button type="text" size="small" @click="toDelete(scope.row.id)">删除</el-button>
+            <el-button type="text" @click="toEdit(scope.row)" size="small" icon="el-icon-edit">编辑</el-button>
+            <el-button type="text" size="small" @click="toDelete(scope.row.id)" icon="el-icon-delete">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -59,6 +64,7 @@
       <div class="btnDiv">
         <el-button @click="toBatchDelete" size="mini" type="danger" plain>批量删除</el-button>
       </div>
+      <!-- 分页 -->
       <div class="pageDiv">
         <el-pagination
           :page-size="pageSize"
