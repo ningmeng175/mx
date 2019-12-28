@@ -3,7 +3,7 @@
  * 用户列表页面
  * @Date: 2019-12-23 17:11:53 
  * @Last Modified by: luoya
- * @Last Modified time: 2019-12-28 19:33:40
+ * @Last Modified time: 2019-12-28 22:14:48
  */
 <template>
   <div id="userList">
@@ -105,23 +105,23 @@
     </el-option>
     </el-select>
     </div>
-    <!-- 搜索框 -->
-    <div class="searchDiv">
-
-    <el-autocomplete placeholder="请输入内容" v-model="search" class="input-with-select" size="small">
-    
-    <el-select  v-model="keyword" slot="prepend" clearable placeholder="关键字" class="selection">
-    <el-option label="用户名"  value="usernameData"></el-option>
-    <el-option label="真实姓名" value="realnameData"></el-option>
-    <el-option label="联系电话" value="telephoneData"></el-option>
-    <el-option label="性别" value="genderData"></el-option>
-    <el-option label="出生年月" value="birthData"></el-option>
-    <el-option label="最高学历" value="educationData"></el-option>
-    </el-select>
-    <el-button slot="append" icon="el-icon-search"></el-button>
-    </el-autocomplete>
-    </div> 
+  
+    <!-- 关键字，搜索框 -->
+    <div class="keywords">
+    <el-select class="search_part" @change="keyWordTypeChange" size="mini" v-model="keyWordType" clearable placeholder="关键字" >
+    <el-option
+      v-for="item in options"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value"></el-option>
+      </el-select>
+      <el-input class="search_part"  @change="reachKeyWord" size="mini" placeholder="请输入关键字" v-model="inputWord">
+      <i slot="suffix" class="el-input__icon el-icon-search"></i>
+      </el-input>
     </div>
+    </div>
+  
+
 
     <!-- 表格 -->
     <div class="tableDiv">
@@ -244,10 +244,19 @@ import config from "@/utils/config.js";
 export default {
   data() {
     return {
-      //搜索
-      search:'',
-      //关键字
-      keyword:'',
+      // 关键字类型
+      keyWordType:'',
+      // 输入的搜索关键字
+      inputWord:"",
+      // 输入的搜索分类
+      options:
+      [
+        {value: '选项1', label: '学历'}, 
+        { value: '选项2',label: '性别'},
+        {value: '选项3',label: 'id'},
+        {value: '选项4',label: '手机号'},    
+        {value: '选项5',label: '用户名'},
+      ],
       //用户名
       username:'',
       //用户名数组
@@ -326,6 +335,61 @@ export default {
 
   //事件处理函数
   methods: {
+
+    /**
+     * 选择关键字类型发生改变时调用的函数
+     * 作用：改变keyWordType的值
+     */
+    keyWordTypeChange(){
+      //只改变属性值
+    },    
+    /**
+    * 输入关键字并按回车时触发的事件
+    * 作用：寻找含有关键字的记录，并显示
+    */
+    async reachKeyWord(keyWord){
+      // 选择某一方面搜索
+      // console.log("关键字类型："+this.keyWordType);
+      if(this.keyWordType){
+        try {
+          // 根据关键字类型调用方法
+          let res;
+          // 学历
+          if(this.keyWordType==this.options[0].value){
+            res=await findJobhunterByEducation({education :this.inputWord });
+            this.jobhunterData=res.data;
+            this.currentPage=1;
+          }
+          // 性别
+            else if(this.keyWordType==this.options[1].value){
+            res=await findJobhunterByGender({gender :this.inputWord });
+            this.jobhunterData=res.data;
+            this.currentPage=1;
+          }
+          // 手机号
+            else if(this.keyWordType==this.options[3].value){
+            res=await findJobhunterByTelephone({ telephone :this.inputWord });
+            this.jobhunterData=res.data;
+            this.currentPage=1;
+          }
+          // 用户名
+            else if(this.keyWordType==this.options[4].value){
+            res=await findJobhunterByUsername({ username :this.inputWord });
+            this.jobhunterData=res.data;
+            this.currentPage=1;
+          }                                    
+        } catch (error) {
+            console.log(error);
+            config.errorMsg(this, "通过关键字查找用户信息错误！");
+          }          
+        }
+        else{
+          // 弹出警告
+          config.errorMsg(this,"请选择关键字！");
+          // 恢复原本数据
+          this.findAllJo();
+        }
+    },
 
     //右上角，模态框关闭之前
     beforeClose() {
@@ -632,5 +696,13 @@ text-align: center;
 //关键字
 .selection{
   width: 90px;
+}
+.keywords{
+  float: right;
+  width: 330px;
+}
+.search_part{
+  display: inline-block;
+  width: 150px;
 }
 </style>
