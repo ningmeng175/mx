@@ -3,7 +3,7 @@
   * 商家审核页面
  * @Date: 2019-12-25 15:04:56 
  * @Last Modified by: mx
- * @Last Modified time: 2019-12-28 16:18:21
+ * @Last Modified time: 2019-12-28 23:26:04
  */
 <template>
   <div id="businessList">
@@ -236,12 +236,16 @@ export default {
         this.currentPage = 1;
         if(temp.length!=0 ){
           this.businessData = temp;
+        }else if(input==''){
+          config.errorMsg(this,'请输入')
+          this.findAllBus();
         }else{
           config.errorMsg(this,'没有这个省份')
+          this.findAllBus();
         }
       }catch(err){
         console.log(err);
-        config.errorMsg(this,'没有这个省份')
+        config.errorMsg(this,'错误')
       }
       }else if (this.value=="城市"){
           try{
@@ -252,11 +256,15 @@ export default {
         this.currentPage = 1;
         if(temp.length!=0 ){
           this.businessData = temp;
+        }else if(input==''){
+          config.errorMsg(this,'请输入')
+          this.findAllBus();
         }else{
           config.errorMsg(this,'没有这个城市')
+          this.findAllBus();
         }
       }catch(err){
-        config.errorMsg(this,'没有这个城市')
+        config.errorMsg(this,'错误')
       }
       }else if (this.value=="规模"){
           try{
@@ -267,11 +275,15 @@ export default {
         this.currentPage = 1;
         if(temp.length!=0 ){
           this.businessData = temp;
+        }else if(input==''){
+          config.errorMsg(this,'请输入')
+          this.findAllBus();
         }else{
           config.errorMsg(this,'输入错误')
+          this.findAllBus();
         }
       }catch(err){
-        config.errorMsg(this,'输入错误')
+        config.errorMsg(this,'错误')
       }
       }else if(this.value=="行业"){
         try{
@@ -282,11 +294,15 @@ export default {
         this.currentPage = 1;
         if(temp.length!=0 ){
           this.businessData = temp;
+        }else if(input==''){
+          config.errorMsg(this,'请输入')
+          this.findAllBus();
         }else{
           config.errorMsg(this,'输入错误')
+          this.findAllBus();
         }
       }catch(err){
-        config.errorMsg(this,'输入错误')
+        config.errorMsg(this,'错误')
       }
       }else{
         config.errorMsg(this,'请选择关键字')
@@ -298,6 +314,7 @@ export default {
             this.currentBus.status="审核未通过"
       try {
         let res =await saveOrUpdateBusiness(this.currentBus);
+        this.$refs[formName].resetFields();
         if(res.status===200){
           config.successMsg(this,'成功'); 
         this.findAllBus();

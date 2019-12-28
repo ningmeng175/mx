@@ -3,7 +3,7 @@
 *招聘审核页面
  * @Date: 2019-12-25 18:36:26 
  * @Last Modified by: mx
- * @Last Modified time: 2019-12-28 17:19:05
+ * @Last Modified time: 2019-12-28 23:23:17
  */
 
 <template>
@@ -151,9 +151,9 @@ export default {
       welfareList:[],
       statuses: [],
       employmentData:[],
-      auditStatus:'',
-      auditStatusData:[],
-      employmentData2:[],
+      status:'',
+      statusData:[],
+      temp:[],
        //每页条数
       pageSize:config.pageSize,
       //页数
@@ -228,7 +228,7 @@ export default {
     //通过确定
     async toSave(){
       try {
-        this.currentEmp.auditStatus="审核通过"
+        this.currentEmp.status="审核通过"
         let res =await saveOrUpdateEmployment(this.currentEmp);
         
         if(res.status===200){
@@ -247,7 +247,7 @@ export default {
       torefuse(formName){
       this.$refs[formName].validate(async(valid) => {
           if (valid) {
-            this.currentEmp.auditStatus="拒绝"
+            this.currentEmp.status="拒绝"
       try {
         let res =await saveOrUpdateEmployment(this.currentEmp);
         if(res.status===200){
@@ -285,55 +285,83 @@ export default {
       if(this.value=="城市"){
       try{
         let res = await findEmploymentByCity({city:input});
-        this.employmentData2 = res.data;
-        this.selectauditStatus();
+        this.temp = res.data;
+        this.selectstatus();
+        this.timeDataClear();
+        let temp = this.employmentData
         this.currentPage = 1;
-        if(employmentData2.length!=0 ){
-          this.employmentData = employmentData2;
+        if(temp.length!=0 ){
+          this.employmentData =temp;
+        }else if(input==''){
+          config.errorMsg(this,'请输入')
+          this.findAllEmp();
         }else{
           config.errorMsg(this,'没有这个城市')
+          this.findAllEmp();
         }
       }catch(err){
-        config.errorMsg(this,'没有这个城市')
+        console.log(err);
+        config.errorMsg(this,'错误')
       }
       }else if (this.value=="职位"){
           try{
         let res = await findEmploymentByJob({job:input});
-        let employmentData2 = res.data;
+        this.temp = res.data;
+        this.selectstatus();
+        this.timeDataClear();
+        let temp = this.employmentData
         this.currentPage = 1;
-        if(employmentData2.length!=0 ){
-          this.employmentData = employmentData2;
+        if(temp.length!=0 ){
+          this.employmentData = temp;
+        }else if(input==''){
+          config.errorMsg(this,'请输入')
+          this.findAllEmp();
         }else{
           config.errorMsg(this,'没有这个职位')
+          this.findAllEmp();
         }
       }catch(err){
-        config.errorMsg(this,'没有这个职位')
+        config.errorMsg(this,'错误')
       }
       }else if (this.value=="标题"){
           try{
         let res = await findEmploymentByTitle({title:input});
-        let employmentData2 = res.data;
+        this.temp = res.data;
+        this.selectstatus();
+        this.timeDataClear();
+        let temp = this.employmentData
         this.currentPage = 1;
-        if(employmentData2.length!=0 ){
-          this.employmentData = employmentData2;
+        if(temp.length!=0 ){
+          this.employmentData = temp;
+        }else if(input==''){
+          config.errorMsg(this,'请输入')
+          this.findAllEmp();
         }else{
           config.errorMsg(this,'输入错误')
+          this.findAllEmp();
         }
       }catch(err){
-        config.errorMsg(this,'输入错误')
+        config.errorMsg(this,'错误')
       }
       }else if(this.value=="福利"){
         try{
         let res = await findEmploymentByWelfare({welfare:input});
-        let employmentData2 = res.data;
+        this.temp = res.data;
+        this.selectstatus();
+        this.timeDataClear();
+        let temp = this.employmentData
         this.currentPage = 1;
-        if(employmentData2.length!=0 ){
-          this.employmentData = employmentData2;
+        if(temp.length!=0 ){
+          this.employmentData = temp;
+        }else if(input==''){
+          config.errorMsg(this,'请输入')
+          this.findAllEmp();
         }else{
           config.errorMsg(this,'输入错误')
+          this.findAllBus();
         }
       }catch(err){
-        config.errorMsg(this,'输入错误')
+        config.errorMsg(this,'错误')
       }
       }else{
         config.errorMsg(this,'请选择关键字')
@@ -342,27 +370,30 @@ export default {
      async findAllEmp() {
       try {
         let res = await findAllEmployment();
-        this.employmentData2 = res.data;
-        this.selectauditStatus();
+        this.temp = res.data;
+        this.selectstatus();
         this.timeDataClear();
-        let auditStatusArr = this.employmentData.map(item => {
-          return item.auditStatus;
+        let statusArr = this.employmentData.map(item => {
+          return item.status;
         });
-        this.auditStatusData = [...new Set(auditStatusArr)];
+        this.statusData = [...new Set(statusArr)];
       } catch (error) {
         config.errorMsg(this,'查找失败')
       }
     },
-    selectauditStatus(){
+    selectstatus(){
       this.employmentData = [];
-      this.employmentData2.forEach(item=>{
-        if('待审核'===item.auditStatus){
+      this.temp.forEach(item=>{
+        console.log(item)
+        if('待审核'===item.status){
           this.employmentData.push(item);
+          console.log(this.employmentData,"222")
         }
+        console.log(this.employmentData,"123");
       })
     },
     timeDataClear(res){
-      this.employmentData2.forEach(item=>{
+      this.temp.forEach(item=>{
         item.publishTime = item.publishTime.slice(0,10)
       })
     },
@@ -379,7 +410,7 @@ export default {
            if (action==='confirm') {
              let result = [];
              statuses.forEach(async(item)=>{
-               item.auditStatus='审核通过';
+               item.status='审核通过';
                delete item.publishTime;
                delete item.startTime;
                delete item.endTime;
