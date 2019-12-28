@@ -253,7 +253,6 @@ export default {
       [
         {value: '选项1', label: '学历'}, 
         { value: '选项2',label: '性别'},
-        {value: '选项3',label: 'id'},
         {value: '选项4',label: '手机号'},    
         {value: '选项5',label: '用户名'},
       ],
