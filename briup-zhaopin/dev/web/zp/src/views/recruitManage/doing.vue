@@ -2,27 +2,27 @@
  * @Author: liuyr 
  * 招聘中页面
  * @Date: 2019-12-23 17:03:30 
- * @Last Modified by: mx
- * @Last Modified time: 2019-12-28 16:17:01
+ * @Last Modified by: 0tt0
+ * @Last Modified time: 2019-12-28 19:52:00
  */
 <template>
   <div id="recruitDoing" class="wrap">
     <div id="post">
       <!-- 发布职位按钮 -->
-    <el-button type="primary" icon="el-icon-edit" size="mini" id="publish" >发布职位</el-button>
+    <el-button type="primary" icon="el-icon-edit" size="mini" id="publish" @click="publishPost">发布职位</el-button>
     <!-- 导入职位按钮 -->
-    <el-button type="primary" icon="el-icon-edit" size="mini" id="leading-in">导入职位</el-button>
+    <el-button type="primary" icon="el-icon-edit" size="mini" id="leading-in" @click="leadPost">导入职位</el-button>
     </div>
+    <!-- 搜索按钮 -->
     <div id="search">
       <div id="determineDiv">
         <el-button icon="el-icon-search" size="medium" @click="search"></el-button>
       </div>
-      
+      <!-- 搜索input框 -->
       <div id="inputDiv">
         <el-input v-model="input" placeholder="请输入内容" size="medium" style="width:200px" clearable @change="toOption"></el-input>
       </div>
-      {{option}}
-      {{input}}
+      <!-- 搜索下拉框 -->
       <div id="selectDiv">
         <template>
           <el-select v-model="option" clearable placeholder="关键字" size="medium" style="width:100px" @change="toOption">
@@ -47,6 +47,7 @@
           </el-option>
         </el-select>
         </template>
+        <el-button icon="el-icon-refresh" circle class="searchBtn" @click="flush"></el-button>
       </div>
     </div>
     
@@ -112,7 +113,6 @@
       <div class="btnDiv">
         <div >
           <el-button @click="toBatchDelete">批量删除</el-button>
-          <el-button @click="toggleSelection()">取消选择</el-button>
         </div>
       </div>
     </div>
@@ -155,9 +155,9 @@
       </div>
     </el-dialog>
 
-    <!-- 修改功能 -->
-    <el-dialog title="修改招聘" :visible.sync="editVisible" class="editDialog" :rules="rules" ref="ruleForm">
-      <el-form :model="currentEemployment">
+    <!-- 修改/发布功能 -->
+    <el-dialog title="招聘信息" :visible.sync="editVisible" class="editDialog" :before-close="beforeClose">
+      <el-form :model="currentEemployment" :rules="rules" ref="ruleForm">
         <el-form-item label="招聘名称：" prop="title" :label-width="formLabelWidth">
           <el-input v-model="currentEemployment.title" autocomplete="off"></el-input>
         </el-form-item>
@@ -175,7 +175,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item prop="industry" label="招聘人数：" :label-width="formLabelWidth">
+            <el-form-item prop="num" label="招聘人数：" :label-width="formLabelWidth">
               <el-input v-model="currentEemployment.num"></el-input>
             </el-form-item>
           </el-col>
@@ -199,6 +199,7 @@
             </el-form-item>
           </el-col>
         </el-row>
+        <!-- 福利 -->
         <el-row>
           <el-col :span="24">
               <el-form-item label="福利标签：" :label-width="formLabelWidth">
@@ -207,45 +208,58 @@
                     <el-button icon="el-icon-edit" size="mini" @click="welfareBtn"></el-button>
                   </el-col>
                   <el-col :span="21">
-                    <el-input  v-model="welfareValueInput" :disabled="true"></el-input>
+                    <el-input prop="welfare" v-model="welfareValueInput" :disabled="true"></el-input>
                   </el-col>
                 </el-row>
               </el-form-item>
           </el-col>
         </el-row>
+        <!-- 联系人姓名、联系方式 -->
+        <el-row :gutter="20">
+          <el-col :span="12">
+            <el-form-item prop="contactName" label="联系人姓名" :label-width="formLabelWidth">
+              <el-input v-model="currentEemployment.contactName"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item prop="contactPhone" label="联系人电话" :label-width="formLabelWidth">
+              <el-input v-model="currentEemployment.contactPhone"></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
         <!-- 时间 -->
-        <el-form>
-          <el-form-item label="招聘时间：" :label-width="formLabelWidth">
-            <template>
-              <div class="block" style="width:400px">
-                <!-- <span class="demonstration">默认</span> -->
-                <el-date-picker
-                  style="width:400px"
-                  v-model="timeValue"
-                  type="daterange"
-                  range-separator="至"
-                  start-placeholder="开始日期"
-                  end-placeholder="结束日期"
-                  value-format="yyyy-MM-dd">
-                </el-date-picker>
-              </div>
-            </template>
-          </el-form-item>
-        </el-form>
+        <el-form-item label="招聘时间：" :label-width="formLabelWidth">
+          <template>
+            <div class="block" style="width:400px">
+              <el-date-picker
+                prop="timeValue"
+                style="width:400px"
+                v-model="timeValue"
+                type="daterange"
+                range-separator="至"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期"
+                value-format="yyyy-MM-dd">
+              </el-date-picker>
+            </div>
+          </template>
+        </el-form-item>
         <!-- 描述 -->
-        <el-tooltip placement="top">
-          <div slot="content">请使用"/"对描述进行换行</div>
-            <el-form>
-              <el-form-item prop="description" label="职位描述：" :label-width="formLabelWidth">
-                    <el-input  type="textarea" :rows="4" v-model="currentEemployment.description"></el-input>
-              </el-form-item> 
-            </el-form>
-        </el-tooltip>
+        <el-row>
+          <el-col :span="24">
+            <el-tooltip placement="top">
+              <div slot="content">请使用"/"对描述进行换行</div>
+                  <el-form-item prop="description" label="职位描述：" :label-width="formLabelWidth">
+                        <el-input  type="textarea" :rows="4" v-model="currentEemployment.description"></el-input>
+                  </el-form-item> 
+            </el-tooltip>
+          </el-col>
+        </el-row>
       </el-form>
       
       <div slot="footer" class="dialog-footer">
-        <el-button @click="editVisible = false" >取 消</el-button>
-        <el-button type="primary" @click="toEditSave">确 定</el-button>
+        <el-button @click="toCancel('ruleForm')">取 消</el-button>
+        <el-button type="primary" @click="toEditSave('ruleForm')">确 定</el-button>
       </div>
     </el-dialog>
 
@@ -379,6 +393,39 @@ export default {
         return data;
       };
     return {
+       rules: {
+          title: [
+            { required: true, message: '请输入招聘标题', trigger: 'blur' }
+          ],
+          num:[
+            { required: true, message: '请输入招聘人数', trigger: 'blur' }
+          ],
+          description:[
+            { required: true, message: '请输入公司描述', trigger: 'blur' }
+          ],
+          salary:[
+            { required: true, message: '请输入薪资水平', trigger: 'blur' }
+          ],
+          timeValue:[
+            { required: true, message: '请输入时间', trigger: 'blur' }
+          ],
+          welfare:[
+            { required: true, message: '请输入福利', trigger: 'blur' }
+          ],
+          contactName:[
+            { required: true, message: '请输入联系人名字', trigger: 'blur' }
+          ],
+          contactPhone:[
+            { required: true, message: '请输入联系人电话', trigger: 'blur' }
+          ],
+          businessId:[
+            { required: true, message: '请选择公司', trigger: 'change' }
+          ],
+          job:[
+            { required: true, message: '请选择职业', trigger: 'change' }
+          ],
+        },
+      // 招聘时间
       timeValue:'',
       // 福利的视图
       welfareVisible:false,
@@ -445,24 +492,59 @@ export default {
       }
   },
   methods: {
+      // 刷新页面
+      flush(){
+        this.findAllEmployment();
+      },
+      // 导入职位
+      leadPost(){
+        config.errorMsg(this,"请期待2.0版本");
+      },
+      // 发布职位
+      publishPost(){
+        this.currentEemployment = {};
+        this.editVisible = true;
+        this.connectBusiness();
+        // 获取福利数组
+        this.splitWelfare(this.currentEemployment);
+        this.welfareValueInput = this.welfareList;
+      },
+      beforeClose(){
+        this.$refs["ruleForm"].resetFields();
+        this.editVisible = false;
+      },
+      // 取消
+      toCancel(formName){
+        // 重置表单验证
+        this.$refs[formName].resetFields();
+        this.editVisible = false;
+      },
       // 编辑保存按钮
-      async toEditSave(){
-        // 对this.welfare判断是否为空，this.welfare用于保存福利变量，如果变化将改动，要是没有变动将为空
-        if(this.welfare === ""){}else{
-          this.currentEemployment.welfare = this.welfare
-        }
-        console.log(this.currentEemployment);
-        delete this.currentEemployment.startTime;
-        delete this.currentEemployment.endTime;
-        delete this.currentEemployment.publishTime;
-        let rs = await saveOrUpdateEmployment(this.currentEemployment);
-        if(rs.status === 200){
-          config.successMsg(this,"修改成功！！！");
-          this.editVisible = false;
-          this.findAllEmployment();
-        }else{
-          config.errorMsg(this,"修改失败！！！");
-        }
+      toEditSave(formName){
+        this.$refs[formName].validate(async (valid) => {
+          if (valid) {
+            // 对this.welfare判断是否为空，this.welfare用于保存福利变量，如果变化将改动，要是没有变动将为空
+            if(this.welfare === ""){}else{
+              this.currentEemployment.welfare = this.welfare
+            }
+            console.log(this.currentEemployment);
+            delete this.currentEemployment.startTime;
+            delete this.currentEemployment.endTime;
+            delete this.currentEemployment.publishTime;
+            let rs = await saveOrUpdateEmployment(this.currentEemployment);
+            if(rs.status === 200){
+              config.successMsg(this,"保存成功！！！");
+              this.editVisible = false;
+              this.findAllEmployment();
+            }else{
+              config.errorMsg(this,"保存失败！！！");
+            }
+          }else{
+            console.log('error submit!!');
+            return false;
+          }
+        })
+        
       },
       // 添加福利到input框
       welfareDialog(){
@@ -561,8 +643,6 @@ export default {
         // 获取福利数组
         this.splitWelfare(this.currentEemployment);
         this.welfareValueInput = this.welfareList;
-        // 去除空的数组
-        this.welfareValueInput.splice(this.welfareValueInput.length-1,1) ;
       },
       toDelete(id){
         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
@@ -681,7 +761,7 @@ export default {
       saveEmploymentData(res){
           this.totalemploymentData = res.data;
           this.timeDataClear();
-          this.employmentData = this.totalemploymentData;
+          this.selectStatus();
       },
       // 查找错误
       searchIfError(res,msg){
@@ -706,6 +786,8 @@ export default {
       // 分割福利
       splitWelfare(res){
         this.welfareList = res.welfare.split('、');
+        // 去除空的数组
+        this.welfareList.splice(this.welfareList.length-1,1) ;
       },
       // 获取公司名称
       async getBusinessName(res){
@@ -766,6 +848,9 @@ export default {
     .btnDiv{
       float: left;
     }
+    .searchBtn{
+      float: left;
+    }
     .pageDiv{
       float: right;
     }
@@ -773,6 +858,7 @@ export default {
   #search{
     margin-right: 20px;
     overflow: hidden;
+    
     #selectDiv{
       float: right;
     }
@@ -782,6 +868,7 @@ export default {
     #determineDiv{
       float: right;
     }
+    
   }
   .titleDiv{
     font-size:2em;

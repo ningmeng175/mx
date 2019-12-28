@@ -2,8 +2,8 @@
  * @Author: liuyr 
  * 配置文件，项目中的通用方法和地址
  * @Date: 2019-12-22 19:09:29 
- * @Last Modified by: mx
- * @Last Modified time: 2019-12-26 15:49:30
+ * @Last Modified by: 0tt0
+ * @Last Modified time: 2019-12-28 19:41:01
  */
 import Highcharts from 'highcharts';
 /* 设置后台接口基础路径 */
@@ -29,10 +29,18 @@ function successMsg(that,msg){
     message:msg
   })
 }
+
+function searchError(that,msg){
+  that.$alert(msg, '错误', {
+    confirmButtonText: '确定',
+  });
+}
+
 let pageSize = 10;
 export default {
   bp,
   errorMsg,
   successMsg,
-  pageSize
+  pageSize,
+  searchError
 };

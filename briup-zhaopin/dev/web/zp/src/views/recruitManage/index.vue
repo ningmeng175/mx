@@ -12,6 +12,7 @@
       <el-tab-pane label="招聘中" name="doing"></el-tab-pane>
       <el-tab-pane label="招聘完结" name="finish"></el-tab-pane>
     </el-tabs>
+
     <!-- 选项卡体部 -->
     <div class="tbl-content">
       <router-view></router-view>
@@ -39,4 +40,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+</style>
+<style>
 </style>
