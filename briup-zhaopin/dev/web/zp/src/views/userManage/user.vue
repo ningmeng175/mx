@@ -3,7 +3,7 @@
  * 用户列表页面
  * @Date: 2019-12-23 17:11:53 
  * @Last Modified by: luoya
- * @Last Modified time: 2019-12-28 16:49:16
+ * @Last Modified time: 2019-12-28 19:33:40
  */
 <template>
   <div id="userList">
@@ -17,13 +17,46 @@
 
     <!-- 点击添加用户按钮触发模态框 -->
     <el-dialog title="添加用户" :visible.sync="saveVisible"  :before-close="beforeClose">
-    <el-form :model="jobhunter"  ref="ruleForm">
-    <el-form-item label="用户名" :label-width="formLabelWidth">
+    <el-form :model="jobhunter" :rules="rules" ref="ruleForm">
+    <el-row>
+    <el-col :span="12">
+    <el-form-item prop="username" label="用户名" :label-width="formLabelWidth">
     <el-input v-model="jobhunter.username" placeholder="请输入用户名"></el-input>
     </el-form-item>
-    <el-form-item label="手机号" :label-width="formLabelWidth">
-    <el-input v-model="jobhunter.telephone" placeholder="请输入用户手机号"></el-input>
+    </el-col>
+    <el-col :span="12">
+    <el-form-item prop="realname" label="真实姓名" :label-width="formLabelWidth">
+    <el-input v-model="jobhunter.realname" placeholder="请输入真实姓名"></el-input>
     </el-form-item>
+    </el-col>
+    </el-row>
+    <el-row>
+    <el-col :span="12">
+    <el-form-item prop="gender" label="性别" :label-width="formLabelWidth">
+    <el-select  v-model="jobhunter.gender" clearable placeholder="请选择性别">
+    <el-option label="男"  value="genderData"></el-option>
+    <el-option label="女" value="genderData"></el-option>
+    </el-select>
+    </el-form-item>
+    </el-col>
+    <el-col :span="12">
+    <el-form-item prop="education" label="最高学历" :label-width="formLabelWidth">
+    <el-input v-model="jobhunter.education" placeholder="请输入最高学历"></el-input>
+    </el-form-item>
+    </el-col>
+    </el-row>
+    <el-row>
+    <el-col :span="12">
+    <el-form-item prop="telephone" label="联系方式" :label-width="formLabelWidth">
+    <el-input v-model="jobhunter.telephone" placeholder="请输入联系方式(电话号码)"></el-input>
+    </el-form-item>
+    </el-col>
+    <el-col :span="12">
+    <el-form-item prop="birth" label="出生年月" :label-width="formLabelWidth">
+    <el-input v-model="jobhunter.birth" placeholder="请输入出生年月(1992-01)"></el-input>
+    </el-form-item>
+    </el-col>
+    </el-row>
     </el-form>
     <div class="dialog-saveer">
     <el-button type="primary" @click="toSave('ruleForm')">添 加</el-button>
@@ -133,22 +166,22 @@
 
     <!-- 修改模态框 -->
     <el-dialog title="修改用户信息" :visible.sync="editVisible" width="50%" >
-    <el-form :model="currentJo"  ref="ruleForm">
+    <el-form :model="currentJo" :rules="rules" ref="ruleForm">
     <el-row>
     <el-col :span="12">
-    <el-form-item label="用户名" :label-width="formLabelWidth">
+    <el-form-item prop="username" label="用户名" :label-width="formLabelWidth">
     <el-input v-model="currentJo.username" autocomplete="off"></el-input>
     </el-form-item>
     </el-col>
     <el-col :span="12">
-    <el-form-item label="真实姓名" :label-width="formLabelWidth">
+    <el-form-item prop="realname" label="真实姓名" :label-width="formLabelWidth">
     <el-input v-model="currentJo.realname" autocomplete="off"></el-input>
     </el-form-item>
     </el-col>
     </el-row>
     <el-row>
     <el-col :span="12">
-    <el-form-item label="性别" :label-width="formLabelWidth">
+    <el-form-item prop="gender" label="性别" :label-width="formLabelWidth">
     <el-select v-model="currentJo.gender" placeholder="请选择">
     <el-option
       v-for="item in genderData"
@@ -160,7 +193,7 @@
     </el-form-item>
     </el-col>
     <el-col :span="12">
-    <el-form-item label="最高学历" :label-width="formLabelWidth">
+    <el-form-item prop="education" label="最高学历" :label-width="formLabelWidth">
     <el-select v-model="currentJo.education" placeholder="请选择">
     <el-option
       v-for="item in educationData"
@@ -174,12 +207,12 @@
     </el-row>
     <el-row>
     <el-col :span="12">
-    <el-form-item label="联系方式" :label-width="formLabelWidth">
+    <el-form-item prop="telephone" label="联系方式" :label-width="formLabelWidth">
     <el-input v-model="currentJo.telephone" autocomplete="off"></el-input>
     </el-form-item>
     </el-col>
     <el-col :span="12">
-    <el-form-item label="出生年月" :label-width="formLabelWidth">
+    <el-form-item prop="birth" label="出生年月" :label-width="formLabelWidth">
     <el-input v-model="currentJo.birth" autocomplete="off"></el-input>
     </el-form-item>
     </el-col>
@@ -253,10 +286,12 @@ export default {
       editVisible:false,
       //添加和修改模态框标题名称所占宽度
       formLabelWidth:"80px",
-      //表单中的数据对象
+      //添加用户的表单中的数据对象
       jobhunter:{
         username:'',
+        realname:'',
         telephone:'',
+        birth:'',
       },
       //当前页
       currentPage:1,
@@ -266,7 +301,15 @@ export default {
       ids:[],
       //当前修改的对象
       currentJo:{},
-
+      //校验规则
+      rules: {
+       username: [{required: true, message: '请输入用户名', trigger: 'blur' },],
+       realname: [{required: true, message: '请输入真实姓名', trigger: 'blur' },],
+       gender: [{required: true, message: '请选择性别', trigger: 'change' }],
+       education: [{required: true, message: '请选择最高学历', trigger: 'change' }],
+       telephone: [{required: true, message: '请输入联系电话', trigger: 'blur' },],
+       birth: [{required: true, message: '请输入出生年月', trigger: 'blur' },],
+      }
     };
   },
 
@@ -288,8 +331,7 @@ export default {
     beforeClose() {
       this.$refs["ruleForm"].resetFields();
       this.editVisible = false;
-      this.saveVisible = false;
-      
+      this.saveVisible = false; 
     },
     
     //修改模态框的取消按钮
@@ -552,10 +594,10 @@ text-align: center;
   overflow: hidden;
   margin-top: 10px;
   .btnDiv {
-    float: left;
+    float: right;
   }
   .pageDiv {
-    float: right;
+    float: left;
   }
 }
 .frameDiv {
@@ -589,6 +631,6 @@ text-align: center;
 }
 //关键字
 .selection{
-  width: 100px;
+  width: 90px;
 }
 </style>
