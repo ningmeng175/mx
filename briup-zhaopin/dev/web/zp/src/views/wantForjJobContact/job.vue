@@ -2,13 +2,13 @@
  * @Author: liuyr 
  * 求职列表页面
  * @Date: 2019-12-23 17:11:53 
- * @Last Modified by: dayi
- * @Last Modified time: 2019-12-29 11:10:41
+ * @Last Modified by: luoya
+ * @Last Modified time: 2019-12-29 15:49:58
  */
 <template :data="EmploymentJobhunterData">
   <div>
-    <el-button type="expand">待联系</el-button>
-    <el-table :data="EmploymentJobhunterData" style="width: 100%">
+    <el-button type="expand" size="mini">待联系</el-button>
+    <el-table :data="EmploymentJobhunterList" style="width: 100%">
       <el-table-column prop="jobhunter.realname" label="求职人" width="150"></el-table-column>
       <el-table-column prop="jobhunter.telephone" label="联系方式" width="220"></el-table-column>
       <el-table-column prop="employment.job" label="求职岗位" width="260"></el-table-column>
@@ -23,12 +23,13 @@
     <div>
       <div class="pageDiv">
         <el-pagination
-          :page-size="pageSize"
-          :current-page.sync="currentPage"
-          background
-          @current-change="pageChange"
-          layout="prev, pager, next"
-          :total="EmploymentJobhunterData.length"
+        @current-change="pageChange"
+        :current-page.sync="currentPage"
+        :page-size="pageSize"
+        size="mini"
+        background
+        layout="prev, pager, next"
+        :total="EmploymentJobhunterData.length"
         ></el-pagination>
       </div>
     </div>
@@ -101,7 +102,8 @@ export default {
 
       EmploymentJobhunterWithJobhAndEmpl:"",
       EmploymentJobhunterData:[],
-      EmploymentJobhunterList:[],
+
+      //EmploymentJobhunterList:[],
       seeVisible: false,
       EmploymentJobhunterWithJobhAndEmpl:"",
       //  jobhunter:{ 
@@ -117,8 +119,8 @@ export default {
     //分页数据
     EmploymentJobhunterList() {
       let temp = [...this.EmploymentJobhunterData];
-      let page = this.currentPage;
       let pageSize = config.pageSize;
+      let page = this.currentPage;
       return temp.slice((page - 1) * pageSize, page * pageSize);
     }
   },
