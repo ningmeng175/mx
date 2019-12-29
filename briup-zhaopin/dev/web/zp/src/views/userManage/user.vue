@@ -3,7 +3,7 @@
  * 用户列表页面
  * @Date: 2019-12-23 17:11:53 
  * @Last Modified by: luoya
- * @Last Modified time: 2019-12-29 18:51:29
+ * @Last Modified time: 2019-12-29 19:47:40
  */
 <template>
   <div id="userList">
@@ -649,7 +649,7 @@ export default {
 </script>
 <style  lang="scss" scoped>
 .buttonDiv{
-  margin-top: -55px;
+  margin-top: -52px;
 }
 .dialog-saveer{
 text-align: center;
