@@ -3,7 +3,7 @@
   * 商家审核页面
  * @Date: 2019-12-25 15:04:56 
  * @Last Modified by: mx
- * @Last Modified time: 2019-12-29 15:54:02
+ * @Last Modified time: 2019-12-29 16:20:40
  */
 <template>
   <div id="businessList">
@@ -90,7 +90,7 @@
      <div class="btnDiv">
        <el-button @click="toadopt()" 
        type="success" 
-       round size="mini" 
+        size="mini" 
        plain>一键通过</el-button>
     </div>
    </div>
@@ -134,7 +134,7 @@
     </div>
   </el-dialog>
   <!-- 拒绝按钮 -->
- <el-dialog title="提示" :visible.sync="refuseVisible" style="width:80%" :before-close="handleClose">
+ <el-dialog title="提示" :visible.sync="refuseVisible" width="40% "  :before-close="handleClose">
   <el-form :model="ruleForm" :rules="rules" ref="ruleForm" >
   <el-form-item label="拒绝理由" prop="name">
       <el-input type="textarea" :rows="5" v-model="ruleForm.name"></el-input>
