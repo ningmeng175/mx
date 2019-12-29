@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50529
 File Encoding         : 65001
 
-Date: 2019-12-29 16:36:37
+Date: 2019-12-29 20:46:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -70,22 +70,22 @@ CREATE TABLE `zp_business` (
 -- Records of zp_business
 -- ----------------------------
 INSERT INTO `zp_business` VALUES ('2355', '可乐金融公司', '张开', '0909-7896789', '金融', '文昌路', '100-200', '2014-04-19', '10万', '可乐金融公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '柳州');
-INSERT INTO `zp_business` VALUES ('2902', '萨达', '李依依', '0909-7896789', '科技', '学院路', '400-600', '2013-11-11', '100万', 'A公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '江苏', '苏州');
-INSERT INTO `zp_business` VALUES ('2903', '铭魂', '包青天', '0808-7878787', '软件', '工业园区', '20-100', '2012-10-04', '100万', 'B公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '江苏', '昆山');
-INSERT INTO `zp_business` VALUES ('2904', 'slow', '王玉', '6787-7878756', '金融', '龙潭公园', '200-400', '2017-12-09', '20万', 'C公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '山西', '运城');
-INSERT INTO `zp_business` VALUES ('2905', '风后奇门', '王也', '0359-4567654', '软件', '尖草坪区', '400-600', '2016-09-24', '100万', 'D公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '山西', '太原');
-INSERT INTO `zp_business` VALUES ('2928', '木叶', '覃革', 'q6787-7878756', '渔业', '清华路', 'q200-400', '2014-04-19', '100万', 'q该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '南宁');
-INSERT INTO `zp_business` VALUES ('2929', '元素', '赵倩', '6787-7878756', '科技', '武汉路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '来宾');
-INSERT INTO `zp_business` VALUES ('2930', '科大', '卞国林', '6787-7878756', '科技', '飞尚路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '柳州');
-INSERT INTO `zp_business` VALUES ('2931', '启迪', '梁小帅', '6787-7878756', '科技', '雷池路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '桂林');
-INSERT INTO `zp_business` VALUES ('2934', '兰屿', '任青', '6787-7878756', '科技', '文昌路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '柳州');
-INSERT INTO `zp_business` VALUES ('2935', '五六七', '陈晔', '6787-7878756', '科技', '上风路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '玉林');
-INSERT INTO `zp_business` VALUES ('2936', '嘻哈', '刘德华', '6787-7878756', '科技', '城中路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '湖南', '长沙');
-INSERT INTO `zp_business` VALUES ('2937', '涂鸦', '小六', '6787-7878756', '科技', '喀什路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '湖北', '武汉');
-INSERT INTO `zp_business` VALUES ('2938', '灵感', '梧桐', '6787-7878756', '软件', '文时路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '河北', '石家庄');
-INSERT INTO `zp_business` VALUES ('2939', '晨光', '阿通', '6787-7878756', '软件', '玉峰区', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '宁夏', '宁夏');
-INSERT INTO `zp_business` VALUES ('2940', '风吟', '可乐', '6787-7878756', '软件', '萨迦路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '云南', '昆明');
-INSERT INTO `zp_business` VALUES ('2941', '景山', '蚌壳', '6787-7878756', '软件', '上礼园区', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '柳州');
+INSERT INTO `zp_business` VALUES ('2902', '明峰集团', '李依依', '0909-7896789', '科技', '学院路', '400-600', '2013-11-11', '100万', '明峰是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '江苏', '苏州');
+INSERT INTO `zp_business` VALUES ('2903', '合伙人', '包青天', '0808-7878787', '软件', '工业园区', '20-100', '2012-10-04', '100万', '合伙人是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '江苏', '昆山');
+INSERT INTO `zp_business` VALUES ('2904', 'Slow', '王玉', '6787-7878756', '金融', '龙潭公园', '200-400', '2017-12-09', '20万', 'Slow是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '山西', '运城');
+INSERT INTO `zp_business` VALUES ('2905', '风后奇门', '王也', '0359-4567654', '软件', '尖草坪区', '400-600', '2016-09-24', '100万', '风后奇门是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '山西', '太原');
+INSERT INTO `zp_business` VALUES ('2906', '木叶', '覃革', 'q6787-7878756', '渔业', '清华路', '200-400', '2014-04-19', '100万', '木叶是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '南宁');
+INSERT INTO `zp_business` VALUES ('2907', '元素', '赵倩', '6787-7878756', '科技', '武汉路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '来宾');
+INSERT INTO `zp_business` VALUES ('2908', '腾宇', '卞国林', '6787-7878756', '科技', '飞尚路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '柳州');
+INSERT INTO `zp_business` VALUES ('2909', '欧迪芬', '梁小帅', '6787-7878756', '科技', '雷池路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '桂林');
+INSERT INTO `zp_business` VALUES ('2910', '兰屿', '任青', '6787-7878756', '科技', '文昌路', '100-200', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '柳州');
+INSERT INTO `zp_business` VALUES ('2911', '飞轮海', '陈晔', '6787-7878756', '科技', '上风路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '玉林');
+INSERT INTO `zp_business` VALUES ('2912', 'SDE', '刘德华', '6787-7878756', '科技', '城中路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '湖南', '长沙');
+INSERT INTO `zp_business` VALUES ('2913', '跃迁集团', '吴后就', '6787-7878756', '科技', '喀什路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '湖北', '武汉');
+INSERT INTO `zp_business` VALUES ('2914', '灵感', '李白', '6787-7878756', '软件', '文时路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '河北', '石家庄');
+INSERT INTO `zp_business` VALUES ('2915', '晨光', '张伟之', '6787-7878756', '软件', '玉峰区', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '宁夏', '宁夏');
+INSERT INTO `zp_business` VALUES ('2916', '风吟', '李余世', '6787-7878756', '软件', '萨迦路', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '云南', '昆明');
+INSERT INTO `zp_business` VALUES ('2917', '景山', '赵候苏', '6787-7878756', '软件', '上礼园区', '200-400', '2014-04-19', '100万', '该公司是一家集生物产品等委托生产、推广于一体的现代化股份制集团公司。公司以客户需求为经营导向，以人类大众健康为己任，提倡健康的生活方式。', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577270460404&di=22afcdf32649055dff3e5d570fdb40d9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190129%2Fa05e6d1a31734b54a3e139795ca06a4e.jpeg', '待审核', '广西', '柳州');
 
 -- ----------------------------
 -- Table structure for `zp_city`
@@ -98,17 +98,17 @@ CREATE TABLE `zp_city` (
   PRIMARY KEY (`id`),
   KEY `province_id` (`province_id`),
   CONSTRAINT `zp_city_ibfk_1` FOREIGN KEY (`province_id`) REFERENCES `zp_province` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=659 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=660 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of zp_city
 -- ----------------------------
 INSERT INTO `zp_city` VALUES ('628', '南昌', '18');
 INSERT INTO `zp_city` VALUES ('651', '运城', '17');
-INSERT INTO `zp_city` VALUES ('652', '太原', '17');
 INSERT INTO `zp_city` VALUES ('653', '柳州', '13');
 INSERT INTO `zp_city` VALUES ('655', '苏州', '8');
 INSERT INTO `zp_city` VALUES ('657', '昆山', '8');
+INSERT INTO `zp_city` VALUES ('659', '深圳', '20');
 
 -- ----------------------------
 -- Table structure for `zp_collect`
@@ -533,124 +533,124 @@ CREATE TABLE `zp_jobhunter` (
   `current_status` varchar(255) DEFAULT NULL,
   `resume` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1563 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1568 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of zp_jobhunter
 -- ----------------------------
-INSERT INTO `zp_jobhunter` VALUES ('32', '尾大的猫猫', '', '小宝', '女', '1996-01', '15963258596', '博士', '', '??', '');
-INSERT INTO `zp_jobhunter` VALUES ('1069', '大雄', null, '李四', '女', '1997-02', '15629846322', '博士', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1070', '皮卡丘', '', '张三', '男', '1998-11', '15478459874', '大专', '朝九晚五', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1074', '哆啦A梦', '', '张花', '女', '1997-08', '19272829244', '大专', null, '待业', '');
-INSERT INTO `zp_jobhunter` VALUES ('1087', '樱桃丸子', '', '黄蝴', '男', '1997-05', '18125767877', '小学', '', '待业', '');
-INSERT INTO `zp_jobhunter` VALUES ('1136', '郝先生', '', '郝鸽', '男', '1998-03', '19645378738', '本科', null, '待业', 'male');
-INSERT INTO `zp_jobhunter` VALUES ('1153', '海绵宝宝', '', '韩剧', '男', '1998-03', '19234567895', '本科', '', '待业', '');
-INSERT INTO `zp_jobhunter` VALUES ('1177', '阿雄', '', '皮卡丘', '女', '2000-01', '15255858623', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1179', '奥特曼', '', '皮卡皮卡', '男', '1997-05', '13645787234', '博士', '2年', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1180', '圣兽', '', '皮卡皮', '男', '1997-06', '19345344234', '博士', '2年', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1181', '憨憨', '', '憨八龟', '男', '1995-06', '15707031913', '博士', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1182', '方法', '', '皮卡丘', '男', '2000-01', '15707043864', '本科', null, '待业', '');
-INSERT INTO `zp_jobhunter` VALUES ('1183', '昊昊', null, '大熊', '女', '1997-05', '15709034535', '博士', '', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1184', '好嗨噢', null, '华子', '男', '1991-06', '15709034533', '博士', '', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1185', '小娴', '', '王二麻', '男', '1997-10', '13487945295', '中职', null, '待业', '');
-INSERT INTO `zp_jobhunter` VALUES ('1188', '黄家考', null, '花子', '男', '1991-09', '15963285695', '中职', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1189', '张益达', null, '李伟', '男', '1997-10', '18812344321', '中职', '1', '待业', '');
+INSERT INTO `zp_jobhunter` VALUES ('32', '尾大的猫猫', '', '小宝', '男', '1996-01', '15963258596', '大专', '3年', '待业', '');
+INSERT INTO `zp_jobhunter` VALUES ('1069', '大雄', null, '凤阳', '女', '1997-02', '15629846322', '博士', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1070', '皮卡丘', '', '张三', '男', '1998-11', '15478459874', '大专', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1074', '哆啦A梦', '', '张花', '女', '1997-08', '19272829244', '大专', '3年以上', '待业', '');
+INSERT INTO `zp_jobhunter` VALUES ('1087', '樱桃丸子', '', '黄蝴', '男', '1997-05', '18125767877', '小学', '3年以上', '待业', '');
+INSERT INTO `zp_jobhunter` VALUES ('1136', '郝先生', '', '郝鸽', '男', '1998-03', '19645378738', '本科', '3年以上', '待业', 'male');
+INSERT INTO `zp_jobhunter` VALUES ('1153', '海绵宝宝', '', '韩剧', '男', '1998-03', '19234567895', '本科', '3年以上', '待业', '');
+INSERT INTO `zp_jobhunter` VALUES ('1177', '阿雄', '', '冯飞', '女', '2000-01', '15255858623', '本科', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1179', '奥特曼', '', '火舞', '男', '1997-05', '13645787234', '博士', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1180', '圣兽', '', '李飞', '男', '1997-06', '19345344234', '博士', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1181', '憨憨', '', '王丹', '男', '1995-06', '15707031913', '博士', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1182', '方法', '', '林宏', '男', '2000-01', '15707043864', '本科', '3年以上', '待业', '');
+INSERT INTO `zp_jobhunter` VALUES ('1183', '昊昊', null, '邓磊', '女', '1997-05', '15709034535', '博士', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1184', '好嗨噢', null, '华子', '男', '1991-06', '15709034533', '博士', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1185', '小娴', '', '李华', '男', '1997-10', '13487945295', '中职', '3年', '待业', '');
+INSERT INTO `zp_jobhunter` VALUES ('1188', '黄家考', null, '花子', '男', '1991-09', '15963285695', '中职', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1189', '张益达', null, '李伟', '男', '1997-10', '18812344321', '中职', '13年以上', '待业', '');
 INSERT INTO `zp_jobhunter` VALUES ('1194', '小焕', '', '张三', '男', '2001-12', '15688888886', '研究生', '无', '待业', '无');
-INSERT INTO `zp_jobhunter` VALUES ('1198', '小花', null, '麻子', '女', '1996-12', '17896524699', '中职', null, '待业', '111');
-INSERT INTO `zp_jobhunter` VALUES ('1202', '小华', null, '张三', '男', '1997-05', '15535166703', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1205', '小可爱', null, '佳佳', '男', '1999-02', '15535156663', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1208', '大可爱', null, '佳佳', '男', '1991-12', '15535166635', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1209', '小梦', null, '加急', '男', '1991-09', '15533466662', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1210', '小萌', '', '哈', '男', '1997-05', '15536444546', '小学', '', '待业', '');
-INSERT INTO `zp_jobhunter` VALUES ('1211', '小小', null, '哈', '男', '2000-02', '15536444578', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1212', '大大', null, '哈', '男', '1997-10', '15536444555', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1213', null, null, '哈', '男', '1998-12', '15536444225', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1214', null, null, '看看', '男', '1989-02', '15535111113', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1215', null, null, '张三', '男', '1997-05', '13366331113', '研究生', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1216', 'null', null, '梁iiiui', '女', '1988-02', '15544422224', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1217', null, null, '是', '女', '1997-10', '18655555544', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1218', null, null, '是', '女', '1966-12', '12555555555', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1219', null, null, '是是', '女', '1999-12', '12555555455', '研究生', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1220', null, null, '', '女', '1996-03', '15962488569', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1221', null, null, '搜索', '男', '1996-09', '15555555555', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1222', null, null, '流量', '男', '1999-12', '15555555554', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1223', null, null, '搜索', '男', '1970-12', '15555555555', '研究生', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1224', null, null, '搜索', '男', '1997-03', '19111111111', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1225', '皇家空军', null, '搜索', '女', '1996-12', '19911111110', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1226', null, null, '搜索', '男', '1999-12', '15221111111', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1227', null, null, '搜索', '女', '1992-01', '18982222222', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1228', null, null, '哈哈哈', '男', '1998-12', '16544222222', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1229', null, null, '哈哈哈', '男', '1996-06', '14962222555', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1230', '', '', '哈哈哈', '男', '1997-05', '19222255487', '博士', '', '待业', '');
-INSERT INTO `zp_jobhunter` VALUES ('1231', null, null, '哈哈哈', '男', '1997-10', '16522222500', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1232', 'null', null, 'ii语言', '男', '1999-11', '12222250000', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1233', null, null, '哈哈哈', '男', '1976-12', '22222250005', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1234', null, null, '哈哈哈', '男', '1997-09', '22222252222', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1235', null, null, '哈哈哈', '男', '1996-06', '22222252222', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1239', null, null, '日日日', '女', '2002-10', '11111111122', '高中', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1243', null, null, '那你', '男', '1999-01', '12222222222', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1244', null, null, '那你', '男', '1978-02', '12222111122', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1245', '', '', '那你', '男', '1999-12', '12222112222', '大专', '', '待业', '');
-INSERT INTO `zp_jobhunter` VALUES ('1246', null, null, '那你', '男', '1985-03', '12222112222', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1247', null, null, '那你', '男', '1998-12', '12222122222', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1248', null, null, '搜索', '女', '1996-06', '22222222222', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1249', '小菊', '', '哈哈', '男', '1997-10', '22222222222', '研究生', '', '待业', '');
+INSERT INTO `zp_jobhunter` VALUES ('1198', '小花', null, '麻子', '女', '1996-12', '17896524699', '中职', '3年', '待业', '111');
+INSERT INTO `zp_jobhunter` VALUES ('1202', '小华', null, '张三', '男', '1997-05', '15535166703', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1205', '小可爱', null, '旺旺', '男', '1999-02', '15535156663', '本科', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1208', '大可爱', null, '佳佳', '男', '1991-12', '15535166635', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1209', '小梦', null, '加急', '男', '1991-09', '15533466662', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1210', '小萌', '', '欧文', '男', '1997-05', '15536444546', '小学', '3年以上', '待业', '');
+INSERT INTO `zp_jobhunter` VALUES ('1211', '小小', null, '违反', '男', '2000-02', '15536444578', '本科', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1212', '大大', null, '微微', '男', '1997-10', '15536444555', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1213', '的', null, '丰富', '男', '1998-12', '15536444225', '本科', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1214', '非人防', null, '看看', '男', '1989-02', '15535111113', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1215', '辅导费', null, '张三', '男', '1997-05', '13366331113', '研究生', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1216', '热风', null, '梁iiiui', '女', '1988-02', '15544422224', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1217', '辅导辅导', null, '地方VB', '女', '1997-10', '18655555544', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1218', '东方饭店', null, '地方', '女', '1966-12', '12555555555', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1219', '丰富的', null, '回复', '女', '1999-12', '12555555455', '研究生', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1220', '辅', null, '二等', '女', '1996-03', '15962488569', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1221', '苟富贵', null, '搜索', '男', '1996-09', '15555555555', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1222', '很讨厌', null, '流量', '男', '1999-12', '15555555554', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1223', '一套一套', null, '代表', '男', '1970-12', '15555555555', '研究生', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1224', '有一天', null, '更好', '男', '1997-03', '19111111111', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1225', '皇家空军', null, '打个', '女', '1996-12', '19911111110', '本科', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1226', '苟富', null, '搜索', '男', '1999-12', '15221111111', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1227', '分隔符', null, '滑过', '女', '1992-01', '18982222222', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1228', '规范', null, '哈哈哈', '男', '1998-12', '16544222222', '本科', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1229', '发给', null, '打个包', '男', '1996-06', '14962222555', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1230', '发', '', '河南', '男', '1997-05', '19222255487', '博士', '3年以上', '待业', '');
+INSERT INTO `zp_jobhunter` VALUES ('1231', '规范', null, '更方便', '男', '1997-10', '16522222500', '本科', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1232', '与', null, 'ii语言', '男', '1999-11', '12222250000', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1233', '更方便', null, '地方', '男', '1976-12', '22222250005', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1234', '更好', null, '哈哈哈', '男', '1997-09', '22222252222', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1235', '工会内部', null, '改变', '男', '1996-06', '22222252222', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1239', '更个', null, '公共', '女', '2002-10', '11111111122', '高中', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1243', '发给', null, '那你', '男', '1999-01', '12222222222', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1244', '任务', null, '那你额', '男', '1978-02', '12222111122', '本科', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1245', '问问', '', '而非', '男', '1999-12', '12222112222', '大专', '3年以上', '待业', '');
+INSERT INTO `zp_jobhunter` VALUES ('1246', '额', null, '热尔', '男', '1985-03', '12222112222', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1247', '热', null, '那公共', '男', '1998-12', '12222122222', '本科', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1248', '发', null, '搜索', '女', '1996-06', '22222222222', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1249', '小菊', '', '哈哈', '男', '1997-10', '22222222222', '研究生', '3年以上', '待业', '');
 INSERT INTO `zp_jobhunter` VALUES ('1265', '丫丫', null, '小艾', '女', '1997-07', '12345567822', '本科', '2年', '待业', null);
 INSERT INTO `zp_jobhunter` VALUES ('1266', '明明', null, '小明', '女', '1995-02', '12312312321', '本科', '1年', '待业', null);
 INSERT INTO `zp_jobhunter` VALUES ('1267', '王五', null, '王五', '男', '1994-04', '12342345354', '本科', '1年', '待业', null);
 INSERT INTO `zp_jobhunter` VALUES ('1268', '小明明', null, '明明', '男', '2000-02', '11111111111', '中职', '1年', '待业', '');
 INSERT INTO `zp_jobhunter` VALUES ('1269', '鑫鑫', null, '小鑫', '女', '1999-03', '22222222222', '大专', '1年', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1271', '1', null, '1', '女', '1992-09', '18879827866', '博士', '1', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1271', '1', null, '李欣', '女', '1992-09', '18879827866', '博士', '1', '待业', null);
 INSERT INTO `zp_jobhunter` VALUES ('1272', '小三', null, '黄三', '男', '2000-10', '12345665555', '本科', '3年', '待业', null);
 INSERT INTO `zp_jobhunter` VALUES ('1273', '小四', null, '刘四', '女', '1990-05', '12335545341', '中职', '5年', '待业', null);
 INSERT INTO `zp_jobhunter` VALUES ('1275', '小七', null, '琪琪', '女', '1998-12', '18989839238', '初中', '2年', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1280', null, null, '喵喵喵', '女', '1986-12', '12312312313', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1281', null, null, '藏三', '女', '2002-10', '11111111111', '高中', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1282', null, null, '张三', '男', '1988-12', '12333333354', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1283', null, null, '张三', '男', '1997-10', '12333333322', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1284', null, null, '张', '男', '1996-06', '12333342453', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1285', '路人甲', null, '边城', '男', '1997-01', '18777465231', '初中', '暂无', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1286', 'null', '', '张是', '男', '1997-09', '12333311145', '本科', '', '待业', '');
-INSERT INTO `zp_jobhunter` VALUES ('1305', '232', null, '23', '女', '1995-06', '23687876777', '高中', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1306', '5V5', null, '王者峡谷', '女', '1997-07', '18777465239', '本科', null, '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1280', '嗯嗯', null, '喵喵喵', '女', '1986-12', '12312312313', '本科', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1281', '乞巧', null, '藏三', '女', '2002-10', '11111111111', '高中', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1282', '权益', null, '丰富', '男', '1988-12', '12333333354', '本科', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1283', '的地方', null, '张三', '男', '1997-10', '12333333322', '本科', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1284', '放到', null, '张', '男', '1996-06', '12333342453', '本科', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1285', '路人甲', null, '边城', '男', '1997-01', '18777465231', '初中', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1286', '删掉', '', '张是', '男', '1997-09', '12333311145', '本科', '2年', '待业', '');
+INSERT INTO `zp_jobhunter` VALUES ('1305', '232', null, '离散', '女', '1995-06', '23687876777', '高中', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1306', '刚刚更换', null, '王者峡谷', '女', '1997-07', '18777465239', '本科', '3年以上', '待业', null);
 INSERT INTO `zp_jobhunter` VALUES ('1307', '张大帅', null, '张三', '女', '1997-09', '19773298479', '小学', '3年', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1308', '125', null, '无极', '女', '1995-12', '12341567895', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1310', '123', null, '312', '女', '1997-10', '12345678909', '研究生', '1年', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1311', 'crystal', null, 'qiuqian', '男', '1998-09', '15179519999', '高中', '3年以上', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1319', '7888', null, '7', '男', '1995-06', '79568959582', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1324', '6', null, '6', '女', '1995-06', '95279527952', '小学', '6', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1308', '东个', null, '无极', '女', '1995-12', '12341567895', '本科', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1310', '是大V是', null, '旺旺我', '女', '1997-10', '12345678909', '研究生', '1年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1311', '省份发v', null, '换行符', '男', '1998-09', '15179519999', '高中', '3年以上', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1319', '7888风俗', null, '发广告', '男', '1995-06', '79568959582', '本科', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1324', '大幅度', null, '丰公共', '女', '1995-06', '95279527952', '小学', '6', '待业', null);
 INSERT INTO `zp_jobhunter` VALUES ('1328', '小吴', null, '王五', '女', '1999-01', '12319527952', '本科', '无', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1330', '211', null, '1111111', '男', '1995-09', '12321952753', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1331', '12', null, '112', '男', '1995-12', '22952795274', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1332', '159', null, '弟弟', '男', '2001-01', '45695279527', '本科', null, '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1330', '211地方', null, '地方', '男', '1995-09', '12321952753', '本科', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1331', '  发的的', null, '洪四庠', '男', '1995-12', '22952795274', '本科', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1332', '谁说', null, '弟弟', '男', '2001-01', '45695279527', '本科', '2年', '待业', null);
 INSERT INTO `zp_jobhunter` VALUES ('1336', '123456', null, '李四', '男', '1989-12', '15693450922', '本科', '3年', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1337', '112112', null, '1111111111', '男', '1995-06', '21195279527', '高中', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1338', '邓', null, '对对对', '男', '2000-01', '11111112952', '高中', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1345', '111', null, 'lan', '男', '1998-03', '18819981998', '中职', '1~3年', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1348', '312', null, '213', '男', '1996-06', '32195279527', '小学', '312', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1349', '312', null, '窝窝窝为', '男', '1989-05', '13113131331', '本科', '312', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1350', '312', null, '窝窝窝为', '男', '198102', '17313114499', '本科', '312', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1358', '1', null, '1', '女', '1995-06', '12195279527', '中职', '1', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1361', '123', null, '123', '女', '1989-12', '10303933355', '中职', '6年', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1362', '嗯嗯', null, '11212', '女', '1979-10', '11195279527', '研究生', null, '待业', '111');
-INSERT INTO `zp_jobhunter` VALUES ('1363', null, null, '2341', '男', '1976-06', '72737423495', '本科', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1364', '321', null, '321', '女', '1990-12', '32134213453', '中职', '123123', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1373', 'asdf', null, '哈哈哈', '男', '1998-11', '95275686786', '本科', '无', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1374', '1', null, '1', '男', '1995-06', '18879827860', '本科', '1', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1337', '112112', null, '改变', '男', '1995-06', '21195279527', '高中', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1338', '都是', null, 'Linda', '男', '2000-01', '11111112952', '高中', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1345', '111谁说等等', null, '王五的', '男', '1998-03', '18819981998', '中职', '1~3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1348', '删掉', null, '谁说的', '男', '1996-06', '32195279527', '小学', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1349', '312都是', null, '丽丽', '男', '1989-05', '13113131331', '本科', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1350', '312删掉', null, '粒利多', '男', '198102', '17313114499', '本科', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1358', '1删掉', null, '对对对', '女', '1995-06', '12195279527', '中职', '1', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1361', '123都是', null, '丰台', '女', '1989-12', '10303933355', '中职', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1362', '嗯嗯', null, 'ad ', '女', '1979-10', '11195279527', '研究生', '2年', '待业', '111');
+INSERT INTO `zp_jobhunter` VALUES ('1363', '都删掉', null, '黎明', '男', '1976-06', '72737423495', '本科', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1364', '321都是', null, '打啊', '女', '1990-12', '32134213453', '中职', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1373', 'asdf二', null, '哈哈哈', '男', '1998-11', '95275686786', '本科', '无', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1374', '1删掉', null, '利达', '男', '1995-06', '18879827860', '本科', '1', '待业', null);
 INSERT INTO `zp_jobhunter` VALUES ('1375', '123456', null, '李四', '男', '1989-12', '15693450923', '本科', '3年', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1397', '', null, '', '男', '1990-01', '95279527568', '中职', null, '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1426', 'yanz', null, 'zht Yan', '男', '1992-09', '13672223717', '本科', '3', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1469', null, '', '112121221', '男', '1969-12', '18821415140', '本科', '34', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1500', '68587', null, '767', '男', '86', '876', '本科', '876', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1501', '68', null, '38', '男', '8+', '87', '初中', '78', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1502', '786', null, '78', '男', '879', '879', '本科', '97', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1503', '789', null, '78', '男', '789', '8', '本科', '789', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1504', '78', null, '789', '男', '8+', '8+', '本科', '546', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1505', '7', null, '45', '男', '78', '789', '本科', '789', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1507', '79', null, '97', '男', '789', '879', '本科', '79', '待业', null);
-INSERT INTO `zp_jobhunter` VALUES ('1560', '14521', null, null, null, null, '12345', null, null, null, null);
-INSERT INTO `zp_jobhunter` VALUES ('1561', '14521', null, null, null, null, '53535', null, null, null, null);
-INSERT INTO `zp_jobhunter` VALUES ('1562', '小花', null, null, null, null, '535355469782', null, null, null, null);
+INSERT INTO `zp_jobhunter` VALUES ('1397', '更好 湖北', null, '倭寇', '男', '1990-01', '95279527568', '中职', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1426', 'yanz', null, '黄昏', '男', '1992-09', '13672223717', '本科', '3', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1469', '放到发', '', '额的', '男', '1969-12', '18821415140', '本科', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1500', '68587', null, '幻化', '男', '1969-12', '18821415140', '本科', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1501', '68', null, '发动机', '男', '1969-12', '18821415140', '初中', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1502', '786', null, '德生科技度', '男', '1969-12', '18821415140', '本科', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1503', '789', null, '玩下', '男', '1969-12', '18821415140', '本科', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1504', '78', null, '发广告吧', '男', '1969-12', '18821415140', '本科', '2年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1505', '7', null, '晚霞', '男', '1969-12', '18821415140', '本科', '12年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1560', '14521', null, '是大V发', '男', '1969-12', '18821415140', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1561', '14521', null, '不是定位', '男', '1969-12', '18821415140', '本科', '3年', '待业', null);
+INSERT INTO `zp_jobhunter` VALUES ('1566', '不断恢复', null, '士大夫', '女', '544', '2456', '本科', null, null, null);
+INSERT INTO `zp_jobhunter` VALUES ('1567', '和雕塑', null, '如果', '女', '13546', '2324', '本科', null, null, null);
 
 -- ----------------------------
 -- Table structure for `zp_jobhunter_service`
@@ -693,7 +693,7 @@ CREATE TABLE `zp_jobs` (
   PRIMARY KEY (`id`),
   KEY `job_type_id` (`job_type_id`),
   CONSTRAINT `zp_jobs_ibfk_1` FOREIGN KEY (`job_type_id`) REFERENCES `zp_job_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=208 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=209 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of zp_jobs
@@ -729,7 +729,7 @@ INSERT INTO `zp_jobs` VALUES ('202', null, 'java', '互联网');
 INSERT INTO `zp_jobs` VALUES ('203', null, '前端工程', '1');
 INSERT INTO `zp_jobs` VALUES ('204', null, 'java', null);
 INSERT INTO `zp_jobs` VALUES ('206', null, 'javaee', null);
-INSERT INTO `zp_jobs` VALUES ('207', '4', '111', '');
+INSERT INTO `zp_jobs` VALUES ('208', '23', '渔夫', '');
 
 -- ----------------------------
 -- Table structure for `zp_job_type`
@@ -739,7 +739,7 @@ CREATE TABLE `zp_job_type` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of zp_job_type
@@ -753,10 +753,7 @@ INSERT INTO `zp_job_type` VALUES ('10', '专业服务');
 INSERT INTO `zp_job_type` VALUES ('11', '文化/体育/娱乐');
 INSERT INTO `zp_job_type` VALUES ('12', '金融');
 INSERT INTO `zp_job_type` VALUES ('13', '生活服务');
-INSERT INTO `zp_job_type` VALUES ('14', '板砖');
-INSERT INTO `zp_job_type` VALUES ('15', '555');
-INSERT INTO `zp_job_type` VALUES ('20', '555');
-INSERT INTO `zp_job_type` VALUES ('22', '哈哈');
+INSERT INTO `zp_job_type` VALUES ('23', '渔业');
 
 -- ----------------------------
 -- Table structure for `zp_message`
@@ -795,7 +792,7 @@ CREATE TABLE `zp_province` (
   `id` bigint(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of zp_province
@@ -806,6 +803,7 @@ INSERT INTO `zp_province` VALUES ('14', '河南');
 INSERT INTO `zp_province` VALUES ('15', '河北');
 INSERT INTO `zp_province` VALUES ('17', '山西');
 INSERT INTO `zp_province` VALUES ('18', '江西');
+INSERT INTO `zp_province` VALUES ('20', '广东');
 
 -- ----------------------------
 -- Table structure for `zp_welfare`
@@ -816,7 +814,7 @@ CREATE TABLE `zp_welfare` (
   `name` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=217 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=221 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of zp_welfare
@@ -828,3 +826,7 @@ INSERT INTO `zp_welfare` VALUES ('203', '五险一金', '使用中');
 INSERT INTO `zp_welfare` VALUES ('210', '下午茶', '冻结中');
 INSERT INTO `zp_welfare` VALUES ('214', '下午烫水', '使用中');
 INSERT INTO `zp_welfare` VALUES ('216', '双休', '使用中');
+INSERT INTO `zp_welfare` VALUES ('217', '双休', '使用中');
+INSERT INTO `zp_welfare` VALUES ('218', '五险一金', '使用中');
+INSERT INTO `zp_welfare` VALUES ('219', '一年30休', '使用中');
+INSERT INTO `zp_welfare` VALUES ('220', '一年30休', '使用中');

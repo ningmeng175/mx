@@ -2,13 +2,16 @@
  * @Author: liuyr 
  * 城市管理页面
  * @Date: 2019-12-23 17:11:53 
- * @Last Modified by: mx
- * @Last Modified time: 2019-12-29 11:33:51
+ * @Last Modified by: Wuxy
+ * @Last Modified time: 2019-12-29 20:29:57
  */
 <template>
   <div>
-    <el-button @click="dialogTableVisible = true" class="butt" type="primary" icon="el-icon-plus" size="mini" round>
+    <div class="butt" align="right">
+    <el-button @click="bttun" class="butt" type="primary" icon="el-icon-plus" size="mini" >
       添加城市</el-button>
+      <el-button @click="bttun1" class="butt" type="primary" icon="el-icon-plus" size="mini" >添加省份</el-button>
+</div>
       <el-dialog title="添加城市" :visible.sync="dialogTableVisible" width="30%">
         <el-form :model="cityform">
           <el-form-item label="城市名称" :label-width="long">
@@ -26,7 +29,7 @@
         </div>
       </el-dialog>
 
-      <el-button @click="dialogFormVisible = true" class="butt" type="primary" icon="el-icon-plus" size="mini" round>添加省份</el-button>
+      
       <el-dialog title="添加省份" :visible.sync="dialogFormVisible" width="30%"> 
         <el-form :model="Provinceform">
           <el-form-item label="省份名称">
@@ -217,6 +220,7 @@ export default {
     //保存
     //保存新增城市信息
     async toCitySave(){
+      
       console.log(this.cityform)
       let name = this.cityform
       try{
@@ -256,6 +260,16 @@ export default {
         });
       }
     },
+    bttun(){
+      this.dialogTableVisible = true,
+      this.cityform.name = ""
+       this.cityform.provinceId =""
+    },
+    bttun1(){
+      this.dialogFormVisible = true,
+      this.Provinceform.name = ""
+     
+    }
 
   },
   created() {
@@ -270,6 +284,7 @@ export default {
 </script>
 <style scoped>
 .butt{
-  float: right;
-}
+  margin-top: -50px;
+};
+
 </style>

@@ -2,15 +2,15 @@
  * @Author: liuyr 
  * 福利管理页面
  * @Date: 2019-12-23 17:11:53 
- * @Last Modified by: luoya
- * @Last Modified time: 2019-12-29 16:13:17
+ * @Last Modified by: Wuxy
+ * @Last Modified time: 2019-12-29 20:19:06
  */
 
 <template>
-  <div id="moduleBoon">福利管理页面
-
-
-<el-button @click="dialogFormVisi = true" class="butt" type="primary" icon="el-icon-plus" size="mini" round>添加福利</el-button>
+  <div id="moduleBoon">
+    <div class="buttonDiv" align="right">
+<el-button @click="buttn" class="butt" type="primary" icon="el-icon-plus" size="mini">添加福利</el-button>
+</div>
       <el-dialog title="添加福利" :visible.sync="dialogFormVisi" width="30%"> 
         <el-form :model="addWelfare">
           <el-form-item label="福利名称">
@@ -34,7 +34,7 @@
     <el-table-column prop="name" label="姓名" show-overflow-tooltip>
     </el-table-column>
     <el-table-column prop="status" label="状态" align="center" width="150">
-        <template slot-scope="scope">
+        <template slot-scope="scope" >
             <div v-html="scope.row.status" v-if="scope.row.status == '使用中'" style="color:#67C23A"></div>
             <div v-html="scope.row.status" v-if="scope.row.status == '冻结中'" style="color:#F56C6C"></div>
           </template>
@@ -57,12 +57,15 @@
 
 
       </template>
-    </el-table-column>
+    </el-table-column >
     <el-table-column label="操作" width="150"  align="center" >
         <template slot-scope="scope">
+          <div v-if="scope.row.status == '冻结中'">
         <el-button size="mini" type="success" @click="changeStatus_a(scope.row)">使用</el-button>
-
+          </div>
+          <div v-if="scope.row.status == '使用中'">
           <el-button size="mini" type="danger" @click="changeStatus_b(scope.row)">冻结</el-button>
+          </div>
       </template>
       </el-table-column>
       
@@ -70,7 +73,7 @@
   <el-pagination class="pagination"
   @current-change="currentChange"
 :current-page.sync="currentPage"
-  :page-size="5"
+  :page-size="10"
  size="mini"
   background
   layout="prev, pager, next"
@@ -120,7 +123,7 @@ export default {
     WelfareList(){
       //current
       let temp = [...this.tableData];
-      let pageSize =5;
+      let pageSize =10;
       let page = this.currentPage
       return temp.slice((page-1)*pageSize,pageSize*page)
     },
@@ -336,6 +339,10 @@ export default {
         });
       }
     },
+    buttn(){
+      this.dialogFormVisi = true
+      this.addWelfare.name = ''
+    }
   },
 
   created() {
@@ -362,4 +369,7 @@ export default {
 .pagination{
   float: right;
 }
+.butt{
+  margin-top: -55px;
+};
 </style>

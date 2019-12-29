@@ -2,14 +2,17 @@
  * @Author: liuyr 
  * 职位管理页面
  * @Date: 2019-12-23 17:11:53 
- * @Last Modified by: mx
- * @Last Modified time: 2019-12-29 11:33:37
+ * @Last Modified by: Wuxy
+ * @Last Modified time: 2019-12-29 20:21:54
  */
 <template>
 
   <div>
-        <el-button @click="dialogTableVisible = true" class="butt" type="primary" icon="el-icon-plus" size="mini" round>
+    <div class="butt" align="right">
+        <el-button @click="bttun" type="primary" icon="el-icon-plus" size="mini">
       添加职业</el-button>
+            <el-button @click="bttun1" type="primary" icon="el-icon-plus" size="mini" >添加行业</el-button>
+</div>
       <el-dialog title="添加职业" :visible.sync="dialogTableVisible" width="30%">
         <el-form :model="jobsform">
           <el-form-item label="职业名称" :label-width="long">
@@ -30,7 +33,6 @@
         </div>
       </el-dialog>
 
-      <el-button @click="dialogFormVisible = true" class="butt" type="primary" icon="el-icon-plus" size="mini" round>添加行业</el-button>
       <el-dialog title="添加行业" :visible.sync="dialogFormVisible" width="30%"> 
         <el-form :model="jobTypeIdform">
           <el-form-item label="行业名称">
@@ -257,6 +259,16 @@ export default {
         });
       }
     },
+       bttun(){
+      this.dialogTableVisible = true,
+      this.jobsform.name = ""
+       this.jobsform.jobTypeId =""
+    },
+    bttun1(){
+      this.dialogFormVisible = true,
+      this.jobTypeIdform.name = ""
+     
+    }
   },
   created() {
     this.findAllJobType()
@@ -268,4 +280,7 @@ export default {
 .butt{
   float: right;
 }
+.butt{
+  margin-top: -55px;
+};
 </style>

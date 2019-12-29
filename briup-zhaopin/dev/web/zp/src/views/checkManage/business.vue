@@ -3,7 +3,7 @@
   * 商家审核页面
  * @Date: 2019-12-25 15:04:56 
  * @Last Modified by: mx
- * @Last Modified time: 2019-12-29 16:20:40
+ * @Last Modified time: 2019-12-29 20:01:11
  */
 <template>
   <div id="businessList">
@@ -246,6 +246,7 @@ export default {
       this.industry = "";
       this.scale = "";
       this.province="";
+      this.findAllBus();
       if(val){
       }else{
         this.value=''
@@ -255,6 +256,7 @@ export default {
     },
     //进行关键字查找
     async tochaxun(input){
+      
       if(this.value=="省份"){
       try{
         let res = await findBusinessByProvince({province:input});

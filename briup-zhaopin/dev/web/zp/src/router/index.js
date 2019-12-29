@@ -150,50 +150,50 @@ export const constantRouterMap = [{
       }]
     }]
   },
-  {
-    path: '/waiterManage',
-    component: Layout,
-    redirect: '/waiterManage/index/waiter',
-    meta: {
-      title: '客服管理',
-      icon: 'fa fa-users'
-    },
-    children: [{
-      path: 'index',
-      hidden: true,
-      component: () => import('@/views/waiterManage/index'),
-      children: [{
-        path: 'waiter',
-        hidden: true,
-        component: () => import('@/views/waiterManage/waiter'),
-        meta: {
-          title: '客服列表'
-        }
-      }]
-    }]
-  },
-  {
-    path: '/limitManage',
-    component: Layout,
-    redirect: '/limitManage/index/limit',
-    meta: {
-      title: '权限管理',
-      icon: 'fa fa-gratipay'
-    },
-    children: [{
-      path: 'index',
-      hidden: true,
-      component: () => import('@/views/limitManage/index'),
-      children: [{
-        path: 'limit',
-        hidden: true,
-        component: () => import('@/views/limitManage/limit'),
-        meta: {
-          title: '权限列表'
-        }
-      }]
-    }]
-  },
+  // {
+  //   path: '/waiterManage',
+  //   component: Layout,
+  //   redirect: '/waiterManage/index/waiter',
+  //   meta: {
+  //     title: '客服管理',
+  //     icon: 'fa fa-users'
+  //   },
+  //   children: [{
+  //     path: 'index',
+  //     hidden: true,
+  //     component: () => import('@/views/waiterManage/index'),
+  //     children: [{
+  //       path: 'waiter',
+  //       hidden: true,
+  //       component: () => import('@/views/waiterManage/waiter'),
+  //       meta: {
+  //         title: '客服列表'
+  //       }
+  //     }]
+  //   }]
+  // },
+  // {
+  //   path: '/limitManage',
+  //   component: Layout,
+  //   redirect: '/limitManage/index/limit',
+  //   meta: {
+  //     title: '权限管理',
+  //     icon: 'fa fa-gratipay'
+  //   },
+  //   children: [{
+  //     path: 'index',
+  //     hidden: true,
+  //     component: () => import('@/views/limitManage/index'),
+  //     children: [{
+  //       path: 'limit',
+  //       hidden: true,
+  //       component: () => import('@/views/limitManage/limit'),
+  //       meta: {
+  //         title: '权限列表'
+  //       }
+  //     }]
+  //   }]
+  // },
   {
     path: '/wantForjJobContact',
     component: Layout,
@@ -245,42 +245,42 @@ export const constantRouterMap = [{
       }]
     }]
   },
-  {
-    path: '/appManage',
-    component: Layout,
-    redirect: '/appManage/index/category',
-    meta: {
-      title: 'APP管理',
-      icon: 'fa fa-bandcamp'
-    },
-    children: [{
-      path: 'index',
-      hidden: true,
-      component: () => import('@/views/appManage/index'),
-      children: [{
-        path: 'category',
-        hidden: true,
-        component: () => import('@/views/appManage/category'),
-        meta: {
-          title: '栏目管理'
-        }
-      }, {
-        path: 'hot',
-        hidden: true,
-        component: () => import('@/views/appManage/hot'),
-        meta: {
-          title: '热门推荐'
-        }
-      }, {
-        path: 'adv',
-        hidden: true,
-        component: () => import('@/views/appManage/adv'),
-        meta: {
-          title: '广告管理'
-        }
-      }]
-    }]
-  },
+  // {
+  //   path: '/appManage',
+  //   component: Layout,
+  //   redirect: '/appManage/index/category',
+  //   meta: {
+  //     title: 'APP管理',
+  //     icon: 'fa fa-bandcamp'
+  //   },
+  //   children: [{
+  //     path: 'index',
+  //     hidden: true,
+  //     component: () => import('@/views/appManage/index'),
+  //     children: [{
+  //       path: 'category',
+  //       hidden: true,
+  //       component: () => import('@/views/appManage/category'),
+  //       meta: {
+  //         title: '栏目管理'
+  //       }
+  //     }, {
+  //       path: 'hot',
+  //       hidden: true,
+  //       component: () => import('@/views/appManage/hot'),
+  //       meta: {
+  //         title: '热门推荐'
+  //       }
+  //     }, {
+  //       path: 'adv',
+  //       hidden: true,
+  //       component: () => import('@/views/appManage/adv'),
+  //       meta: {
+  //         title: '广告管理'
+  //       }
+  //     }]
+  //   }]
+  // },
   {
     path: '*',
     redirect: '/404',
