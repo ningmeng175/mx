@@ -2,8 +2,8 @@
  * @Author: liuyr 
  * 城市管理页面
  * @Date: 2019-12-23 17:11:53 
- * @Last Modified by: Wuxy
- * @Last Modified time: 2019-12-28 14:44:17
+ * @Last Modified by: mx
+ * @Last Modified time: 2019-12-29 09:41:53
  */
 <template>
   <div>
@@ -15,7 +15,7 @@
             <el-input v-model="cityform.name" autocomplete="off"></el-input>
           </el-form-item>
           <el-form-item label="所属省份" :label-width="long">
-            <el-select v-model="cityform.provinceId" placeholder="请选择活动区域">
+            <el-select v-model="cityform.provinceId" placeholder="请选省份">
               <el-option v-for="(item,index) in ProvinceData" :key="index" :label="item.name" :value="item.id"></el-option>
             </el-select>
           </el-form-item>
@@ -74,8 +74,8 @@
 </template>
 
 <script>
-import { findAllCity,findByProvinceIdtoCity,saveOrCityUpdate,deleteCityById } from "@/api/city.js";
-import { findAllProvince,saveOrProvinceUpdate,deleteProvinceById } from "@/api/Province.js";
+import { findAllCity,findCityByProvinceId,saveOrUpdateCity,deleteCityById } from "@/api/city.js";
+import { findAllProvince,saveOrUpdateProvince,deleteProvinceById } from "@/api/Province.js";
 import { async } from 'q';
 export default {
   data() {
@@ -109,7 +109,7 @@ export default {
         let temp = [...res.data];
         temp.forEach(async (item)=>{
           let id = item.id;
-          let resp = await findByProvinceIdtoCity({provinceId:id})
+          let resp = await findCityByProvinceId({provinceId:id})
           console.log(resp);
           item.city = resp.data;
         })
@@ -220,7 +220,7 @@ export default {
       console.log(this.cityform)
       let name = this.cityform
       try{
-      let res = await saveOrCityUpdate(name);
+      let res = await saveOrUpdateCity(name);
       console.log(res);
       this.dialogTableVisible = false;
       this.findAllPro()
@@ -240,7 +240,7 @@ export default {
       let name = this.Provinceform.name
       try {
         // let res = await this.$store.dispatch("FindAllCity");
-        let res = await saveOrProvinceUpdate({name:name});
+        let res = await saveOrUpdateProvince({name:name});
         console.log(res)
         this.dialogFormVisible = false,
         this.findAllPro();

@@ -3,7 +3,7 @@
 *招聘审核页面
  * @Date: 2019-12-25 18:36:26 
  * @Last Modified by: mx
- * @Last Modified time: 2019-12-28 23:23:17
+ * @Last Modified time: 2019-12-29 11:09:23
  */
 
 <template>
@@ -46,14 +46,14 @@
         <!-- 查看操作，触发相应事件 -->
         <el-table-column align="center" label="详情">
           <template slot-scope="scope">
-            <el-button @click="toSee(scope.row)" type="primary" size="mini" icon="el-icon-view">查看</el-button>
+            <el-button @click="toSee(scope.row)" type="text" size="mini" >查看</el-button>
           </template>
         </el-table-column>
         <!-- 待审核状态操作 -->
         <el-table-column align="center" label="操作" >
           <template slot-scope="scope">
-            <el-button  @click="toYes(scope.row)" size="mini"  type="success" >通过</el-button>
-            <el-button type="danger" size="mini" @click="toNo(scope.row)" >拒绝</el-button>
+            <el-button  @click="toYes(scope.row)" size="mini"  type="text" >通过</el-button>
+            <el-button type="text" size="mini" @click="toNo(scope.row)" >拒绝</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -77,7 +77,7 @@
        <el-button @click="toadopt()" 
        type="success" 
        round size="mini" 
-       icon="el-icon-success">一键通过</el-button>
+       plain>一键通过</el-button>
     </div>
    </div>
    <!-- 查看详细数据按钮  -->

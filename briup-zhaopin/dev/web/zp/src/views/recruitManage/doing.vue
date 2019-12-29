@@ -2,8 +2,8 @@
  * @Author: liuyr 
  * 招聘中页面
  * @Date: 2019-12-23 17:03:30 
- * @Last Modified by: 0tt0
- * @Last Modified time: 2019-12-28 19:52:00
+ * @Last Modified by: mx
+ * @Last Modified time: 2019-12-29 09:15:47
  */
 <template>
   <div id="recruitDoing" class="wrap">

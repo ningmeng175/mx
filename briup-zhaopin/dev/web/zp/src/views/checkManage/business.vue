@@ -3,12 +3,18 @@
   * 商家审核页面
  * @Date: 2019-12-25 15:04:56 
  * @Last Modified by: mx
- * @Last Modified time: 2019-12-28 23:26:04
+ * @Last Modified time: 2019-12-29 11:07:49
  */
 <template>
   <div id="businessList">
     <!-- 定义一个关键字下拉列表，输入框还有按钮，在关键字范围内进行查询 -->
     <div class="searchDiv">
+      <el-select @change="industryChange" size="mini" v-model="industry" clearable placeholder="行业">
+        <el-option v-for="item in industryData" :key="item" :label="item" :value="item"></el-option>
+      </el-select>
+      <el-select @change="scaleChange" size="mini" v-model="scale" clearable placeholder="规模">
+        <el-option v-for="item in scaleData" :key="item" :label="item" :value="item"></el-option>
+      </el-select>
       <!-- 搜索按钮 -->
       <el-button icon="el-icon-search" style="width:5px" class="box" size="mini" @click="tochaxun(input)"></el-button >
       <!-- 关键字输入框 -->
@@ -48,14 +54,14 @@
         <!-- 查看操作，触发相应事件 -->
         <el-table-column align="center" label="详情">
           <template slot-scope="scope">
-            <el-button @click="toSee(scope.row)" type="primary" size="mini" icon="el-icon-view">查看</el-button>
+            <el-button @click="toSee(scope.row)" type="text" size="mini" >查看</el-button>
           </template>
         </el-table-column>
         <!-- 待审核状态操作 -->
         <el-table-column align="center" label="操作" >
           <template slot-scope="scope">
-            <el-button  @click="toYes(scope.row)" size="mini"  type="success" >通过</el-button>
-            <el-button type="danger" size="mini" @click="toNo(scope.row)" >拒绝</el-button>
+            <el-button  @click="toYes(scope.row)" size="mini" type="text" >通过</el-button>
+            <el-button type="text" size="mini" @click="toNo(scope.row)" >拒绝</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -79,7 +85,7 @@
        <el-button @click="toadopt()" 
        type="success" 
        round size="mini" 
-       icon="el-icon-success">一键通过</el-button>
+       plain>一键通过</el-button>
     </div>
    </div>
    <!-- 查看详细数据按钮  -->
@@ -142,7 +148,15 @@ import { findAllBusiness,findBusinessByCity,findBusinessByProvince,findBusinessB
 import config from "@/utils/config.js";
 export default {
   data() {
-    return {  
+    return {
+      //行业
+      industry: "",
+      //规模
+      scale: "",
+      //行业数组
+      industryData: [],
+      //规模数组
+      scaleData: [],  
       ruleForm:{name:''},
       refuseVisible:false,
       adoptVisible:false,
@@ -406,6 +420,17 @@ export default {
         });
         //去重
         this.statusData = [...new Set(statusArr)];
+         let industryArr = res.data.map(item => {
+          return item.industry;
+        });
+        //去重
+        this.industryData = [...new Set(industryArr)];
+        //规模数组
+        let scaleArr = res.data.map(item => {
+          return item.scale;
+        });
+        //去重
+        this.scaleData = [...new Set(scaleArr)];
       } catch (error) {
         config.errorMsg(this,'查找失败')
       }
@@ -418,9 +443,45 @@ export default {
         }
       })
     },
+    //行业发生改变
+    async industryChange(val) {
+      this.province = "";
+      this.city = "";
+      this.scale = "";
+      //val 是option的value值
+      if (val) {
+        try {
+          let res = await findBusinessByIndustry({ industry: val });
+          this.temp = res.data;
+          this.selectStatus();
+          this.currentPage = 1;
+        } catch (error) {
+          config.errorMsg(this, "通过行业查找商家信息错误");
+        }
+      } else {
+        this.findAllBus();
+      }
+    },
+    //规模发生改变
+    async scaleChange(val) {
+      this.province = "";
+      this.city = "";
+      this.industry = "";
+      //val 是option的value值
+      if (val) {
+        try {
+          let res = await findBusinessByScale({ scale: val });
+          this.temp = res.data;
+          this.selectStatus();
+          this.currentPage = 1;
+        } catch (error) {
+          config.errorMsg(this, "通过规模查找商家信息错误");
+        }
+      } else {
+        this.findAllBus();
+      }
+    },
   },
- 
- 
   created() {
     this.findAllBus();
   },
