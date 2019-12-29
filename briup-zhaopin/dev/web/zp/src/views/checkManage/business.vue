@@ -3,7 +3,7 @@
   * 商家审核页面
  * @Date: 2019-12-25 15:04:56 
  * @Last Modified by: mx
- * @Last Modified time: 2019-12-29 11:40:52
+ * @Last Modified time: 2019-12-29 15:54:02
  */
 <template>
   <div id="businessList">
@@ -14,6 +14,12 @@
       </el-select>
       <el-select @change="scaleChange" size="mini" v-model="scale" clearable placeholder="规模">
         <el-option v-for="item in scaleData" :key="item" :label="item" :value="item"></el-option>
+      </el-select>
+      <el-select @change="cityChange" size="mini" v-model="city" clearable placeholder="城市">
+        <el-option v-for="item in cityData" :key="item" :label="item" :value="item"></el-option>
+      </el-select>
+      <el-select @change="provinceChange" size="mini" v-model="province" clearable placeholder="规模">
+        <el-option v-for="item in provinceData" :key="item" :label="item" :value="item"></el-option>
       </el-select>
       <!-- 搜索按钮 -->
       <el-button icon="el-icon-search" style="width:5px" class="box" size="mini" @click="tochaxun(input)"></el-button >
@@ -120,7 +126,7 @@
       </div>
     </el-dialog>
   <!-- 通过按钮 -->
-  <el-dialog title="提示" :visible.sync="adoptVisible" style="width:40%">
+  <el-dialog title="提示" :visible.sync="adoptVisible"  width="20%">
       <td>是否确实通过？</td>
     <div slot="footer" class="dialog-footer" >
     <el-button @click="adoptVisible = false" type="danger" size="mini">  取消</el-button>
@@ -149,6 +155,10 @@ import config from "@/utils/config.js";
 export default {
   data() {
     return {
+      province:'',
+      provinceData: [],
+      city:'',
+      cityData: [],
       //行业
       industry: "",
       //规模
@@ -232,6 +242,10 @@ export default {
     },
     //取消下拉框关键字时，刷新页面
     valueChange(val){
+      this.city = "";
+      this.industry = "";
+      this.scale = "";
+      this.province="";
       if(val){
       }else{
         this.value=''
@@ -431,6 +445,16 @@ export default {
         });
         //去重
         this.scaleData = [...new Set(scaleArr)];
+        let cityArr = res.data.map(item => {
+          return item.city;
+        });
+        //去重
+        this.cityData = [...new Set(cityArr)];
+        let provinceArr = res.data.map(item => {
+          return item.province;
+        });
+        //去重
+        this.provinceData = [...new Set(provinceArr)];
       } catch (error) {
         config.errorMsg(this,'查找失败')
       }
@@ -446,6 +470,7 @@ export default {
     //行业发生改变
     async industryChange(val) {
       this.province = "";
+      this.value ="",
       this.city = "";
       this.scale = "";
       //val 是option的value值
@@ -464,6 +489,7 @@ export default {
     },
     //规模发生改变
     async scaleChange(val) {
+      this.value ="",
       this.province = "";
       this.city = "";
       this.industry = "";
@@ -476,6 +502,44 @@ export default {
           this.currentPage = 1;
         } catch (error) {
           config.errorMsg(this, "通过规模查找商家信息错误");
+        }
+      } else {
+        this.findAllBus();
+      }
+    },
+    async cityChange(val) {
+      this.value ="",
+      this.province = "";
+      this.industry = "";
+      this.scale = "";
+      //val 是option的value值
+      if (val) {
+        try {
+          let res = await findBusinessByCity({ city: val });
+          this.temp = res.data;
+          this.selectStatus();
+          this.currentPage = 1;
+        } catch (error) {
+          config.errorMsg(this, "通过城市查找商家信息错误");
+        }
+      } else {
+        this.findAllBus();
+      }
+    },
+    async provinceChange(val) {
+      this.value ="",
+      this.city = "";
+      this.industry = "";
+      this.scale = "";
+      //val 是option的value值
+      if (val) {
+        try {
+          let res = await findBusinessByProvince({ province: val });
+          this.temp = res.data;
+          this.selectStatus();
+          this.currentPage = 1;
+        } catch (error) {
+          config.errorMsg(this, "通过城市查找商家信息错误");
         }
       } else {
         this.findAllBus();
@@ -532,4 +596,5 @@ export default {
   margin-right: 20px;
     overflow: hidden;
 }
+
 </style>

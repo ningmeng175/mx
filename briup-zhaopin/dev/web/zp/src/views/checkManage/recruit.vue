@@ -3,12 +3,21 @@
 *招聘审核页面
  * @Date: 2019-12-25 18:36:26 
  * @Last Modified by: mx
- * @Last Modified time: 2019-12-29 11:40:42
+ * @Last Modified time: 2019-12-29 16:02:45
  */
 
 <template>
   <div id="recruitCheck">
      <div class="searchDiv">
+       <el-select @change="jobChange" size="mini" v-model="job" clearable placeholder="职位">
+        <el-option v-for="item in jobData" :key="item" :label="item" :value="item"></el-option>
+      </el-select>
+       <el-select @change="cityChange" size="mini" v-model="city" clearable placeholder="城市">
+        <el-option v-for="item in cityData" :key="item" :label="item" :value="item"></el-option>
+      </el-select>
+      <el-select @change="titleChange" size="mini" v-model="title" clearable placeholder="标题">
+        <el-option v-for="item in titleData" :key="item" :label="item" :value="item"></el-option>
+      </el-select>
       <!-- 搜索按钮 -->
       <el-button icon="el-icon-search" style="width:5px" class="box" size="mini" @click="tochaxun(input)"></el-button >
       <!-- 关键字输入框 -->
@@ -118,7 +127,7 @@
       </div>
     </el-dialog>
    <!-- 通过按钮 -->
-  <el-dialog title="提示" :visible.sync="adoptVisible" style="width:40%">
+  <el-dialog title="提示" :visible.sync="adoptVisible" width="20%">
       <td>是否确实通过？</td>
     <div slot="footer" class="dialog-footer" >
     <el-button @click="adoptVisible = false" type="danger" size="mini">  取消</el-button>
@@ -147,6 +156,16 @@ import config from "@/utils/config.js";
 export default {
   data() {
     return {
+      city:"",
+      cityData:[],
+       //行业
+      job: "",
+      //规模
+      title: "",
+      //行业数组
+      jobData: [],
+      //规模数组
+      titleData: [], 
       descriptionList:[],
       welfareList:[],
       statuses: [],
@@ -250,6 +269,7 @@ export default {
             this.currentEmp.status="拒绝"
       try {
         let res =await saveOrUpdateEmployment(this.currentEmp);
+        this.$refs[formName].resetFields();
         if(res.status===200){
           config.successMsg(this,'成功'); 
         this.findAllEmp();
@@ -274,6 +294,9 @@ export default {
     //取消下拉框关键字时，刷新页面
     valueChange(val){
       if(val){
+      this.job="";
+      this.city = "";
+      this.title = "";
       }else{
         this.value=''
         this.findAllEmp();
@@ -377,6 +400,22 @@ export default {
           return item.status;
         });
         this.statusData = [...new Set(statusArr)];
+        let jobArr = res.data.map(item => {
+          return item.job;
+        });
+        //去重
+        this.jobData = [...new Set(jobArr)];
+        //规模数组
+        let titleArr = res.data.map(item => {
+          return item.title;
+        });
+        //去重
+        this.titleData = [...new Set(titleArr)];
+        let cityArr = res.data.map(item => {
+          return item.city;
+        });
+        //去重
+        this.cityData = [...new Set(cityArr)];
       } catch (error) {
         config.errorMsg(this,'查找失败')
       }
@@ -429,7 +468,7 @@ export default {
                  config.successMsg(this,'成功');
                  this.findAllEmp();
                }
-             },1000)
+             },500)
            }
           }
         });
@@ -446,6 +485,66 @@ export default {
       splitDescription(res){
         this.descriptionList = res.description.split("/");
       },
+    //改变
+    async jobChange(val) {
+      this.value="",
+      this.city = "";
+      this.title = "";
+      //val 是option的value值
+      if (val) {
+        try {
+          let res = await findEmploymentByJob({ job: val });
+          this.temp = res.data;
+          this.selectstatus();
+        this.timeDataClear();
+          this.currentPage = 1;
+        } catch (error) {
+          config.errorMsg(this, "通过职业查找招聘信息错误");
+        }
+      } else {
+        this.findAllEmp();
+      }
+    },
+    //职位发生改变
+    async titleChange(val) {
+      this.value="",
+      this.city = "";
+      this.job = "";
+      //val 是option的value值
+      if (val) {
+        try {
+          let res = await findEmploymentByTitle({ title: val });
+          this.temp = res.data;
+          this.selectstatus();
+          this.timeDataClear();
+          this.currentPage = 1;
+        } catch (error) {
+          config.errorMsg(this, "通过标题查找招聘信息错误");
+        }
+      } else {
+        this.findAllEmp();
+      }
+    },
+     //城市发生改变
+    async cityChange(val) {
+      this.value="",
+      this.title = "";
+      this.job = "";
+      //val 是option的value值
+      if (val) {
+        try {
+          let res = await findEmploymentByCity({ city: val });
+          this.temp = res.data;
+          this.selectstatus();
+          this.timeDataClear();
+          this.currentPage = 1;
+        } catch (error) {
+          config.errorMsg(this, "通过标题查找招聘信息错误");
+        }
+      } else {
+        this.findAllEmp();
+      }
+    },
   },
   created() {
     this.findAllEmp();
