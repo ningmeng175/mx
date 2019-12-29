@@ -490,8 +490,11 @@ export default {
   },
   methods: {
       // 刷新页面
-      flush(){
+      flush(){  
         this.findAllEmployment();
+        this.job = "";
+        this.input = "";
+        this.option = "";
       },
       // 导入职位
       leadPost(){

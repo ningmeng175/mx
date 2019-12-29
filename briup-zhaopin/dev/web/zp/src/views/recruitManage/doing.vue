@@ -500,6 +500,9 @@ export default {
       // 刷新页面
       flush(){
         this.findAllEmployment();
+        this.job = "";
+        this.input = "";
+        this.option = "";
       },
       // 导入职位
       leadPost(){
