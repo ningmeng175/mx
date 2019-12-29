@@ -7,7 +7,7 @@
  */
 
 <template>
-  <div id="moduleBoon">福利管理页面
+  <div id="moduleBoon">
 
 
 <el-button @click="dialogFormVisi = true" class="butt" type="primary" icon="el-icon-plus" size="mini" round>添加福利</el-button>

@@ -7,7 +7,7 @@
  * @Last Modified time: 2019-12-29 09:15:47
 =======
  * @Last Modified by: 0tt0
- * @Last Modified time: 2019-12-29 10:55:09
+ * @Last Modified time: 2019-12-29 21:09:31
 >>>>>>> f986a22c359e8aab60a9bbfd72020f3478686cf4
  */
 <template>
@@ -504,9 +504,9 @@ export default {
         this.input = "";
         this.option = "";
       },
-      // 导入职位
+      // 导入职位v
       leadPost(){
-        config.errorMsg(this,"请期待2.0版本");
+        config.searchError(this,"请期待2.0版本");
       },
       // 发布职位
       publishPost(){
@@ -822,12 +822,15 @@ export default {
         console.log(res.description);
       },
       // 拼接公司name、value到一个数组中
-      connectBusiness(){
+      async connectBusiness(){
+        let res = await findAllEmployment();
+        this.totalemploymentData = res.data;
         // 将公司id去重
         let businessArr = this.totalemploymentData.map((item)=>{
             // map映射
             return item.businessId;
         });
+        this.businessList = [];
         // 去重
         let BusinessList = [...new Set (businessArr)];
         BusinessList.forEach(async item=>{
@@ -835,6 +838,7 @@ export default {
           let name = data.data.name;
           // 将公司id与公司名字连接成一个字典
           this.businessList.push({id:item,name:name});
+          console.log(this.businessList,"this.businessList");
         })
       }
   },

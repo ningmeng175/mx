@@ -3,7 +3,7 @@
  * 配置文件，项目中的通用方法和地址
  * @Date: 2019-12-22 19:09:29 
  * @Last Modified by: 0tt0
- * @Last Modified time: 2019-12-28 19:41:01
+ * @Last Modified time: 2019-12-29 21:12:07
  */
 import Highcharts from 'highcharts';
 /* 设置后台接口基础路径 */
@@ -31,7 +31,7 @@ function successMsg(that,msg){
 }
 
 function searchError(that,msg){
-  that.$alert(msg, '错误', {
+  that.$alert(msg, '通知', {
     confirmButtonText: '确定',
   });
 }

@@ -3,7 +3,7 @@
  * 招聘完结页面
  * @Date: 2019-12-23 17:03:30 
  * @Last Modified by: 0tt0
- * @Last Modified time: 2019-12-29 11:11:56
+ * @Last Modified time: 2019-12-29 21:09:53
  */
 <template>
   <div id="recruitDoing" class="wrap">
@@ -498,7 +498,7 @@ export default {
       },
       // 导入职位
       leadPost(){
-        config.errorMsg(this,"请期待2.0版本");
+        config.searchError(this,"请期待2.0版本");
       },
       // 发布职位
       publishPost(){
