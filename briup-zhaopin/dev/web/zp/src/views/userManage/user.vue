@@ -9,10 +9,11 @@
   <div id="userList">
     <!-- 用户列表页面 -->
 
-    <!-- 添加用户和导入用户按钮 -->
+    <!-- 刷新、添加用户和导入用户按钮 -->
     <div class="buttonDiv" align="right">
-    <el-button @click="toAdd" size="small" type="danger">添加用户</el-button>
-    <el-button @click="toLead" size="small" type="primary">导入用户</el-button>
+    <el-button @click="toRefresh" size="mini" icon="el-icon-refresh" circle clearable></el-button>
+    <el-button @click="toAdd" size="mini" type="danger">添加用户</el-button>
+    <el-button @click="toLead" size="mini" type="primary">导入用户</el-button>
     </div>
 
     <!-- 点击添加用户按钮触发模态框 -->
@@ -85,7 +86,7 @@
     <!-- 选择器 -->
     <div class="frameDiv">
     <div class="selectDiv">
-    <el-select @change="educationChange" v-model="education" clearable placeholder="学历" size="small">
+    <el-select  @change="educationChange" v-model="education" clearable placeholder="学历" size="small">
     <el-option
       v-for="item in educationData"
       :key="item"
@@ -121,12 +122,7 @@
 
     <!-- 表格 -->
     <div class="tableDiv">
-    <el-table
-    ref="multipleTable"
-    :data="jobhunterList"
-    tooltip-effect="dark"
-    style="width: 100%"
-    @selection-change="selectionChange">
+    <el-table ref="multipleTable" :data="jobhunterList" tooltip-effect="dark"  @selection-change="selectionChange">
     <el-table-column align="center" type="selection" width="55"></el-table-column>
     <el-table-column align="center" prop="username" label="用户名">
     <!-- <template slot-scope="scope">{{ scope.row.date }}</template> -->
@@ -138,8 +134,8 @@
     <el-table-column align="center" prop="education" label="最高学历" ></el-table-column>
     <el-table-column label="操作" width="100">
     <template slot-scope="scope">
-    <el-button @click="toEdit(scope.row)" type="text"  icon="el-icon-edit"></el-button>
-    <el-button @click="toDelete(scope.row.id)" type="text"  icon="el-icon-delete"></el-button>
+    <el-button size="mini" @click="toEdit(scope.row)" type="text">修改</el-button>
+    <el-button size="mini" @click="toDelete(scope.row.id)" type="text">删除</el-button>
     </template>
     </el-table-column>
     </el-table>
@@ -447,6 +443,12 @@ export default {
           return false;
        }
      });
+    },
+
+    //刷新按钮
+    toRefresh(){
+      this.currentPage=1;
+      this.findAllJo();
     },
 
     //添加按钮
