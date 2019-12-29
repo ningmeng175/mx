@@ -3,7 +3,7 @@
   * 商家审核页面
  * @Date: 2019-12-25 15:04:56 
  * @Last Modified by: mx
- * @Last Modified time: 2019-12-29 11:07:49
+ * @Last Modified time: 2019-12-29 11:40:52
  */
 <template>
   <div id="businessList">
@@ -527,5 +527,9 @@ export default {
 .dialog-footer{
   text-align: center;
   margin-top: -40px;
+}
+.searchDiv{
+  margin-right: 20px;
+    overflow: hidden;
 }
 </style>

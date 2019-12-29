@@ -2,8 +2,13 @@
  * @Author: liuyr 
  * 招聘中页面
  * @Date: 2019-12-23 17:03:30 
+<<<<<<< HEAD
  * @Last Modified by: mx
  * @Last Modified time: 2019-12-29 09:15:47
+=======
+ * @Last Modified by: 0tt0
+ * @Last Modified time: 2019-12-29 10:55:09
+>>>>>>> f986a22c359e8aab60a9bbfd72020f3478686cf4
  */
 <template>
   <div id="recruitDoing" class="wrap">
@@ -16,16 +21,16 @@
     <!-- 搜索按钮 -->
     <div id="search">
       <div id="determineDiv">
-        <el-button icon="el-icon-search" size="medium" @click="search"></el-button>
+        <el-button icon="el-icon-search" size="mini" @click="search"></el-button>
       </div>
       <!-- 搜索input框 -->
       <div id="inputDiv">
-        <el-input v-model="input" placeholder="请输入内容" size="medium" style="width:200px" clearable @change="toOption"></el-input>
+        <el-input v-model="input" placeholder="请输入内容" size="mini" style="width:200px" clearable @change="toOption"></el-input>
       </div>
       <!-- 搜索下拉框 -->
       <div id="selectDiv">
         <template>
-          <el-select v-model="option" clearable placeholder="关键字" size="medium" style="width:100px" @change="toOption">
+          <el-select v-model="option" clearable placeholder="关键字" size="mini" style="width:100px" @change="toOption">
             <el-option
               v-for="(item,index) in optionData"
               :key="index"
@@ -38,7 +43,7 @@
       <!-- 职位类型 -->
       <div id="post_type">
         <template>
-        <el-select v-model="job" clearable placeholder="职位类型" size="medium" @change="toFind">
+        <el-select v-model="job" clearable placeholder="职位类型" size="mini" @change="toFind">
           <el-option
             v-for="(item,index) in jobData"
             :key="index"
@@ -47,7 +52,7 @@
           </el-option>
         </el-select>
         </template>
-        <el-button icon="el-icon-refresh" circle class="searchBtn" @click="flush"></el-button>
+        <el-button icon="el-icon-refresh" circle class="searchBtn" @click="flush" size="mini"></el-button>
       </div>
     </div>
     
@@ -112,7 +117,7 @@
       </div>
       <div class="btnDiv">
         <div >
-          <el-button @click="toBatchDelete">批量删除</el-button>
+          <el-button @click="toBatchDelete" size="mini" type="danger" plain>批量删除</el-button>
         </div>
       </div>
     </div>
@@ -228,13 +233,12 @@
           </el-col>
         </el-row>
         <!-- 时间 -->
-        <el-form-item label="招聘时间：" :label-width="formLabelWidth">
+        <el-form-item prop="timeValue" label="招聘时间：" :label-width="formLabelWidth">
           <template>
             <div class="block" style="width:400px">
               <el-date-picker
-                prop="timeValue"
                 style="width:400px"
-                v-model="timeValue"
+                v-model="currentEemployment.timeValue"
                 type="daterange"
                 range-separator="至"
                 start-placeholder="开始日期"
@@ -256,6 +260,7 @@
           </el-col>
         </el-row>
       </el-form>
+      
       
       <div slot="footer" class="dialog-footer">
         <el-button @click="toCancel('ruleForm')">取 消</el-button>
@@ -407,7 +412,7 @@ export default {
             { required: true, message: '请输入薪资水平', trigger: 'blur' }
           ],
           timeValue:[
-            { required: true, message: '请输入时间', trigger: 'blur' }
+            { required: true, message: '请输入时间', trigger: 'change' }
           ],
           welfare:[
             { required: true, message: '请输入福利', trigger: 'blur' }
@@ -531,7 +536,13 @@ export default {
             delete this.currentEemployment.startTime;
             delete this.currentEemployment.endTime;
             delete this.currentEemployment.publishTime;
+            this.currentEemployment.status = "审核通过";
+            if(this.currentEemployment.city == null){
+              this.currentEemployment.city = "成都";
+              this.currentEemployment.province = "四川";
+            }
             let rs = await saveOrUpdateEmployment(this.currentEemployment);
+            console.log(this.timeValue);
             if(rs.status === 200){
               config.successMsg(this,"保存成功！！！");
               this.editVisible = false;
@@ -794,12 +805,13 @@ export default {
           let rs = res.businessId;
           let data = await findBusinessById({id:rs});
           let name = data.data.name;
-          return name;
+          return name;  
       },
       // 分割描述
       splitDescription(res){
         let rs = res.description;
         this.descriptionList = rs.split("/");
+        console.log(res.description);
       },
       // 拼接公司name、value到一个数组中
       connectBusiness(){

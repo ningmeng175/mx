@@ -3,7 +3,7 @@
 *招聘审核页面
  * @Date: 2019-12-25 18:36:26 
  * @Last Modified by: mx
- * @Last Modified time: 2019-12-29 11:09:23
+ * @Last Modified time: 2019-12-29 11:40:42
  */
 
 <template>
@@ -514,5 +514,9 @@ export default {
   }
   .descriptionDiv{
     margin-top: 30px;
+  }
+  .searchDiv{
+    margin-right: 20px;
+    overflow: hidden;
   }
 </style>

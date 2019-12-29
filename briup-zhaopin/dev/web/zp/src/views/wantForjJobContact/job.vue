@@ -2,81 +2,73 @@
  * @Author: liuyr 
  * 求职列表页面
  * @Date: 2019-12-23 17:11:53 
- * @Last Modified by: mx
- * @Last Modified time: 2019-12-28 17:23:18
+ * @Last Modified by: dayi
+ * @Last Modified time: 2019-12-29 11:10:41
  */
-<template>
-   <div>      <!--id="jobhunterList" -->
-      <!-- {{employmentId}} -->
-    <!-- {{employmentIdData}} -->
-
-    <!-- {{jobhunter}} -->
-    <!-- {{jobhunterData}} -->
-    <!-- {{findAllEmploymentJobhunterWithJobhAndEmplData}} -->
+<template :data="EmploymentJobhunterData">
+  <div>
     <el-button type="expand">待联系</el-button>
-      <el-table :data="jobhunterData" style="width: 100%">
-        <el-table-column prop="realname" label="求职人" width="150"></el-table-column>
-        <el-table-column prop="telephone" label="联系方式" width="220"></el-table-column>
-        <el-table-column :data = "employmentjobhunterData" label="求职岗位" width="260">
-          <template slot-scope="scope">{{scope.row.employmentId}}</template>
-        </el-table-column>
-        <el-table-column label="简历" width="180">
-          <template slot-scope="scope">
-            <el-button @click="toSee(scope.row)" type="text" size="small">查看</el-button>
-          </template>
-          <!-- <el-button type="text" @click="dialogVisible = true">查看</el-button> -->
-          <!-- <el-dialog
-            title="提示"
-            :visible.sync="dialogVisible"
-            width="30%"
-            :before-close="handleClose">
-            <span>这是一段信息</span>
-            <span slot="footer" class="dialog-footer">
-               <el-button @click="dialogVisible = false">取 消</el-button>
-              <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-            </span>
-          </el-dialog> -->
-        </el-table-column>
-        <el-table-column prop="askTime" label="申请时间"></el-table-column>
-      </el-table>
-      <!-- 查看框 -->
-      <!-- <el-dialog :title="currentempjob.name" :visible.sync="seeVisible">
+    <el-table :data="EmploymentJobhunterData" style="width: 100%">
+      <el-table-column prop="jobhunter.realname" label="求职人" width="150"></el-table-column>
+      <el-table-column prop="jobhunter.telephone" label="联系方式" width="220"></el-table-column>
+      <el-table-column prop="employment.job" label="求职岗位" width="260"></el-table-column>
+      <el-table-column label="简历" width="180">
+        <template slot-scope="scope">
+          <el-button @click="toSee(scope.row)" type="text" size="small">查看</el-button>
+        </template>
+      </el-table-column>
+      <el-table-column prop="askTime" label="申请时间"></el-table-column>
+    </el-table>
+      <!-- 分页 -->
+    <div>
+      <div class="pageDiv">
+        <el-pagination
+          :page-size="pageSize"
+          :current-page.sync="currentPage"
+          background
+          @current-change="pageChange"
+          layout="prev, pager, next"
+          :total="EmploymentJobhunterData.length"
+        ></el-pagination>
+      </div>
+    </div>
+    <!-- 查看框:title="jobhunter.realname -->
+    <div>
+    <el-dialog :title="currentempjob.realname"
+    :visible.sync="seeVisible">
       <div class="seeDiv">
-        <el-row :>
+        <el-row>
+          <el-button type="primary">个人信息</el-button>
+        </el-row>
+        <el-row>
           <el-col :span="12">
             <span>性别：</span>
-            {{currentBus.industry}}
+            {{currentempjob.gender}}
           </el-col>
           <el-col :span="12">
             <span>最高学历：</span>
-            {{currentBus.establishedTime}}
+            {{currentempjob.education}}
           </el-col>
         </el-row>
-        <el-row :>
+        <el-row>
           <el-col :span="12">
             <span>出生年月：</span>
-            {{currentBus.registeredCapital}}
+            {{currentempjob.birth}}
           </el-col>
           <el-col :span="12">
             <span>工作经验：</span>
-            {{currentBus.scale}}
+            {{currentempjob.workTime}}
           </el-col>
         </el-row>
-      </div> -->
-<!-- 
-      <div class="descDiv">&nbsp;&nbsp;&nbsp;&nbsp;{{currentBus.description}}</div>
-      <div class="imgDiv">
-        <a :href="currentBus.businessLicense" target="_blank">
-          <img :src="currentBus.businessLicense" alt width="200" height="150" />
-        </a>
-      </div> 
-      </el-dialog>-->
+      </div>
+    </el-dialog>
+    </div>
   </div>
 </template>
 
 <script>
 import {findAllJobhunter} from '@/api/jobhunter.js';
-import {findAllEmploymentJobhunter,findEmploymentJobhunterById} from '@/api/employment-jobhunter.js';
+import {findAllEmploymentJobhunter,findAllEmploymentJobhunterWithJobhAndEmpl} from '@/api/employment-jobhunter.js';
 import config from '@/utils/config.js';
 export default {
   data() {
@@ -101,10 +93,65 @@ export default {
       jobhunterList:[],
 
       currentempjob:{},
+      //currentempjob:[],
+       //当前页
+      currentPage: 1,
+      //每页条数
+      pageSize: config.pageSize,
+
+      EmploymentJobhunterWithJobhAndEmpl:"",
+      EmploymentJobhunterData:[],
+      EmploymentJobhunterList:[],
+      seeVisible: false,
+      EmploymentJobhunterWithJobhAndEmpl:"",
+      //  jobhunter:{ 
+      //   realname:"",
+      //   education: "",
+      //   birth: "",
+      //   workTime: "",
+      //   gender: "",
+      // },
     };
   },
-  computed: {},
+  computed: {
+    //分页数据
+    EmploymentJobhunterList() {
+      let temp = [...this.EmploymentJobhunterData];
+      let page = this.currentPage;
+      let pageSize = config.pageSize;
+      return temp.slice((page - 1) * pageSize, page * pageSize);
+    }
+  },
   methods: {
+    //查找所有求职者和求职信息
+    async findAllEmpJob(){
+      try {
+        let res = await findAllEmploymentJobhunterWithJobhAndEmpl();
+        this.EmploymentJobhunterData = res.data;
+
+        res.forEach(item => {
+          for(let i=0;i<EmploymentJobhunterData.length;i++){
+            let name = EmploymentJobhunterData[i].realname;
+          }
+        });
+        //let temp = [...res.data];
+        // //求职者姓名
+        // let realname = res.data.map(item => {
+        //   return item.realname;
+        // });
+        // //求职者电话
+        // let telephone = res.data.map(item => {
+        //   return item.telephone;
+        // });
+        //  let result = this.EmploymentJobhunterData.filter(item => {
+        //       return item.id === result;
+        // })[0];
+        // // result 是省份对象
+        // this.currentempjob.jobhunter = result.data;
+        
+      }catch (error) {
+      }
+    },
     //查找所有求职者信息
     async findAllJob(){
       try {
@@ -121,40 +168,36 @@ export default {
         });
 
       }catch (error) {
-        config.errorMsg(this,'查找错误');
+         config.errorMsg(this, "查找错误");
       }
     },
-    //查找求职信息数据
-    async findAllEmploymentJob() {
-      try {
-        let res = await findAllEmploymentJobhunter(this.currentempjob);
-        this.employmentjobhunterData = res.data;
-        //console.log(employmentjobhunterData);
-
-        //求职岗位
-        let employmentIdArr = res.data.map(item => {
-          return item.employmentId;
-        });
-        //申请时间
-        let askTime = res.data.map(item => {
-          return item.askTime;
-        });
-      } catch (error) {
-        config.errorMsg(this, "查找错误");
-      }
+    
+    //查看
+    toSee(row) {
+      this.currentempjob = { ...row };
+      this.seeVisible = true;
     },
-
-
-
-
+    // 页数发生改变
+    pageChange(page) {
+      this.currentPage = page;
+    },
     
   },
   created() {
     this.findAllJob();
-    this.findAllEmploymentJob();
+    this.findAllEmpJob();
   },
   mounted() {}
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+.seeDiv {
+  border-bottom: 1px solid #ccc;
+  line-height:45px;
+  font-weight: bold;
+  span {
+    color: #777;
+  }
+}
+
 </style>
