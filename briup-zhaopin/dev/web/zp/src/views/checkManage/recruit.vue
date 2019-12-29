@@ -3,7 +3,7 @@
 *招聘审核页面
  * @Date: 2019-12-25 18:36:26 
  * @Last Modified by: mx
- * @Last Modified time: 2019-12-29 16:20:30
+ * @Last Modified time: 2019-12-29 20:02:25
  */
 
 <template>
@@ -297,6 +297,7 @@ export default {
       this.job="";
       this.city = "";
       this.title = "";
+      this.findAllEmp();
       }else{
         this.value=''
         this.findAllEmp();

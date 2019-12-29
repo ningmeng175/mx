@@ -3,7 +3,7 @@
  * 用户列表页面
  * @Date: 2019-12-23 17:11:53 
  * @Last Modified by: luoya
- * @Last Modified time: 2019-12-29 19:47:40
+ * @Last Modified time: 2019-12-29 20:06:36
  */
 <template>
   <div id="userList">
@@ -189,7 +189,7 @@
     </el-col>
     <el-col :span="12">
     <el-form-item prop="education" label="最高学历" :label-width="formLabelWidth">
-    <el-select v-model="currentJo.d" placeholder="请选择">
+    <el-select v-model="currentJo.education" placeholder="请选择">
     <el-option
       v-for="item in educationData"
       :key="item"
@@ -335,6 +335,8 @@ export default {
      * 作用：改变keyWordType的值
      */
     keyWordTypeChange(){
+      this.gender='';
+      this.education='';
       //只改变属性值
     },    
     /**
@@ -582,6 +584,8 @@ export default {
     //学历发生改变
     async educationChange(val){
       this.gender='';
+      this.keyWordType='';
+      this.inputWord = '';
       //val是当前选中的value值
       // console.log(val);
       if(val){
@@ -600,6 +604,8 @@ export default {
     //性别发生改变
     async genderChange(val){
       this.education='';
+      this.keyWordType='';
+      this.inputWord = '';
       //val是当前选中的value值
       // console.log(val);
       if(val){

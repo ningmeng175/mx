@@ -2,12 +2,13 @@
  * @Author: liuyr 
  * 求职列表页面
  * @Date: 2019-12-23 17:11:53 
- * @Last Modified by: luoya
- * @Last Modified time: 2019-12-29 15:49:58
+ * @Last Modified by: dayi
+ * @Last Modified time: 2019-12-29 20:23:56
  */
-<template :data="EmploymentJobhunterData">
+<template id="EmploymentJobhunterList">
   <div>
-    <el-button type="expand" size="mini">待联系</el-button>
+    <el-button size="mini" v-model = "activeName" @click="handclick" prop = "temp" name = "wait">待联系</el-button>
+    <!-- <el-button size="mini" v-model = "activeName" @click="handclick" prop = "temp" name = "finish">已联系</el-button> -->
     <el-table :data="EmploymentJobhunterList" style="width: 100%">
       <el-table-column prop="jobhunter.realname" label="求职人" width="150"></el-table-column>
       <el-table-column prop="jobhunter.telephone" label="联系方式" width="220"></el-table-column>
@@ -39,7 +40,9 @@
     :visible.sync="seeVisible">
       <div class="seeDiv">
         <el-row>
-          <el-button type="primary">个人信息</el-button>
+          <el-button type="primary">个人信息
+            <el-icon-s-custom></el-icon-s-custom>
+          </el-button>
         </el-row>
         <el-row>
           <el-col :span="12">
@@ -74,24 +77,12 @@ import config from '@/utils/config.js';
 export default {
   data() {
     return {
-      //求职者
-      jobhunter:"",
-      //求职岗位
-      employmentId:"",
-      //求职信息
-      employmentjobhunter:"",
-      //申请时间
+      // //申请时间
       askTime:"",
-      //求职者数组
-      jobhunterData:[],
-      //求职岗位数组
-      employmentIdData:[],
-      //求职信息数组
-      employmentjobhunterData:[],
       //申请时间数组
       askTimeData:[],
 
-      jobhunterList:[],
+      //jobhunterList:[],
 
       currentempjob:{},
       //currentempjob:[],
@@ -99,20 +90,14 @@ export default {
       currentPage: 1,
       //每页条数
       pageSize: config.pageSize,
-
       EmploymentJobhunterWithJobhAndEmpl:"",
       EmploymentJobhunterData:[],
 
       //EmploymentJobhunterList:[],
       seeVisible: false,
       EmploymentJobhunterWithJobhAndEmpl:"",
-      //  jobhunter:{ 
-      //   realname:"",
-      //   education: "",
-      //   birth: "",
-      //   workTime: "",
-      //   gender: "",
-      // },
+      findEmpJob:"",
+      findEmpJobData:[],
     };
   },
   computed: {
@@ -125,17 +110,31 @@ export default {
     }
   },
   methods: {
+    // handclick(event){
+    //   this.findAllEmpJob();
+    // },
     //查找所有求职者和求职信息
     async findAllEmpJob(){
       try {
         let res = await findAllEmploymentJobhunterWithJobhAndEmpl();
         this.EmploymentJobhunterData = res.data;
-
-        res.forEach(item => {
-          for(let i=0;i<EmploymentJobhunterData.length;i++){
-            let name = EmploymentJobhunterData[i].realname;
-          }
+        this.EmploymentJobhunterData.forEach((item)=>{
+            item.askTime = item.askTime.slice(0,10);
+        })
+        // res.forEach(item => {
+        //   for(let i=0;i<EmploymentJobhunterData.length;i++){
+        //     let name = EmploymentJobhunterData[i].realname;
+        //   }
+        // });
+        let temp = await findAllEmploymentJobhunter();
+          this.findEmpJobData = temp.data;
+        let jobhunterId = temp.data.map(item => {
+          return item.jobhunterId;
         });
+        let jobhunter = temp.data.map(item => {
+          return item.jobhunter.id;
+        });
+        //this.currentempjob = 
         //let temp = [...res.data];
         // //求职者姓名
         // let realname = res.data.map(item => {
@@ -154,6 +153,29 @@ export default {
       }catch (error) {
       }
     },
+
+    // ansyc findEmpJob(){
+    //   jobhunterId
+    // }
+      // try {
+          
+          // if (this.activeName==="wait") {
+          //   temp= res.data.filter((item)=>{
+          //     return item.remark=="待联系";
+          //   });
+          // } 
+          // if(this.activeName==="finish"){
+          //   temp= res.data.filter((item)=>{
+          //     return item.remark=="已联系";
+          //   });
+          // }
+         
+          
+          
+        // } catch (error) {
+          
+        // }
+
     //查找所有求职者信息
     async findAllJob(){
       try {
@@ -176,7 +198,7 @@ export default {
     
     //查看
     toSee(row) {
-      this.currentempjob = { ...row };
+      this.currentempjob = { ...row.jobhunter };
       this.seeVisible = true;
     },
     // 页数发生改变
@@ -201,5 +223,7 @@ export default {
     color: #777;
   }
 }
-
+.pageDiv{
+  float: right;
+}
 </style>
