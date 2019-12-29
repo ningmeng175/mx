@@ -2,8 +2,8 @@
  * @Author: luoya 
  * 用户列表页面
  * @Date: 2019-12-23 17:11:53 
- * @Last Modified by: 0tt0
- * @Last Modified time: 2019-12-29 11:46:34
+ * @Last Modified by: luoya
+ * @Last Modified time: 2019-12-29 18:51:29
  */
 <template>
   <div id="userList">
@@ -12,8 +12,8 @@
     <!-- 刷新、添加用户和导入用户按钮 -->
     <div class="buttonDiv" align="right">
     <el-button @click="toRefresh" size="mini" icon="el-icon-refresh" circle clearable></el-button>
-    <el-button @click="toAdd" size="mini" type="danger">添加用户</el-button>
-    <el-button @click="toLead" size="mini" type="primary">导入用户</el-button>
+    <el-button @click="toAdd" size="mini" type="danger" icon="el-icon-info">添加用户</el-button>
+    <el-button @click="toLead" size="mini" type="primary" icon="el-icon-info">导入用户</el-button>
     </div>
 
     <!-- 点击添加用户按钮触发模态框 -->
@@ -86,7 +86,7 @@
     <!-- 选择器 -->
     <div class="frameDiv">
     <div class="selectDiv">
-    <el-select  @change="educationChange" v-model="education" clearable placeholder="学历" size="small">
+    <el-select  @change="educationChange" v-model="education" clearable placeholder="学历" size="mini">
     <el-option
       v-for="item in educationData"
       :key="item"
@@ -94,7 +94,7 @@
       :value="item">
     </el-option>
     </el-select>
-    <el-select @change="genderChange" v-model="gender" clearable placeholder="性别" size="small">
+    <el-select @change="genderChange" v-model="gender" clearable placeholder="性别" size="mini">
     <el-option
       v-for="item in genderData"
       :key="item"
@@ -189,7 +189,7 @@
     </el-col>
     <el-col :span="12">
     <el-form-item prop="education" label="最高学历" :label-width="formLabelWidth">
-    <el-select v-model="currentJo.education" placeholder="请选择">
+    <el-select v-model="currentJo.d" placeholder="请选择">
     <el-option
       v-for="item in educationData"
       :key="item"
@@ -448,8 +448,11 @@ export default {
 
     //刷新按钮
     toRefresh(){
-      this.currentPage=1;
       this.findAllJo();
+      this.education = "";
+      this.gender = "";
+      this.keyWordType = "";
+      this.inputWord = '';
     },
 
     //添加按钮
@@ -679,6 +682,7 @@ text-align: center;
   overflow: hidden;
   margin: 20px;
   .span {
+    color: red;
     float: left;
   }
   .download {
