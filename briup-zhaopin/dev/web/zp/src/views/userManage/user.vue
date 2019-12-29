@@ -33,10 +33,7 @@
     <el-row>
     <el-col :span="12">
     <el-form-item prop="gender" label="性别" :label-width="formLabelWidth">
-    <el-select  v-model="jobhunter.gender" clearable placeholder="请选择性别">
-    <el-option label="男"  value="genderData"></el-option>
-    <el-option label="女" value="genderData"></el-option>
-    </el-select>
+    <el-input v-model="jobhunter.gender" placeholder="请输入性别"></el-input>
     </el-form-item>
     </el-col>
     <el-col :span="12">
@@ -122,7 +119,6 @@
     </div>
   
 
-
     <!-- 表格 -->
     <div class="tableDiv">
     <el-table
@@ -148,6 +144,7 @@
     </el-table-column>
     </el-table>
     
+
     <div class="footerDiv">
     <!-- 批量删除按钮 -->
     <div class="btnDiv">
@@ -163,6 +160,7 @@
     :total="jobhunterData.length"></el-pagination>
     </div>
     </div>
+
 
     <!-- 修改模态框 -->
     <el-dialog title="修改用户信息" :visible.sync="editVisible" width="50%" >
@@ -645,7 +643,7 @@ export default {
 </script>
 <style  lang="scss" scoped>
 .buttonDiv{
-  margin-top: -60px;
+  margin-top: -55px;
 }
 .dialog-saveer{
 text-align: center;
