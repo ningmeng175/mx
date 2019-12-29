@@ -3,7 +3,7 @@
  * 用户列表页面
  * @Date: 2019-12-23 17:11:53 
  * @Last Modified by: 0tt0
- * @Last Modified time: 2019-12-29 10:51:06
+ * @Last Modified time: 2019-12-29 11:46:34
  */
 <template>
   <div id="userList">
@@ -136,13 +136,14 @@
     <el-table-column align="center" prop="gender" label="性别" ></el-table-column>
     <el-table-column align="center" prop="birth" label="出生年月" ></el-table-column>
     <el-table-column align="center" prop="education" label="最高学历" ></el-table-column>
-    <el-table-column label="操作" width="100">
+    <el-table-column label="操作">
     <template slot-scope="scope">
     <el-button @click="toEdit(scope.row)" type="text"  icon="el-icon-edit"></el-button>
     <el-button @click="toDelete(scope.row.id)" type="text"  icon="el-icon-delete"></el-button>
     </template>
     </el-table-column>
     </el-table>
+    </div>
     
 
     <div class="footerDiv">
@@ -224,7 +225,7 @@
 
 
     </div>
-  </div>
+  
 </template>
 
 <script>

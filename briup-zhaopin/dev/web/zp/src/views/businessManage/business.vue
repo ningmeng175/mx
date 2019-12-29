@@ -2,8 +2,8 @@
  * @Author: liuyr 
  * 商家列表页面
  * @Date: 2019-12-23 17:11:53 
- * @Last Modified by: zhouyj
- * @Last Modified time: 2019-12-28 19:55:26
+ * @Last Modified by: 0tt0
+ * @Last Modified time: 2019-12-29 11:32:48
  */
 <template>
   <div id="businessList">
@@ -49,13 +49,13 @@
         <el-table-column align="center" prop="scale" label="公司规模"></el-table-column>
         <el-table-column align="center" label="详情">
           <template slot-scope="scope">
-            <el-button @click="toSee(scope.row)" type="text" size="small" icon="el-icon-search">查看</el-button>
+            <el-button @click="toSee(scope.row)" type="text" size="small">查看</el-button>
           </template>
         </el-table-column>
         <el-table-column align="center" label="操作" width="150">
           <template slot-scope="scope">
-            <el-button type="text" @click="toEdit(scope.row)" size="small" icon="el-icon-edit">编辑</el-button>
-            <el-button type="text" size="small" @click="toDelete(scope.row.id)" icon="el-icon-delete">删除</el-button>
+            <el-button type="text" @click="toEdit(scope.row)" size="small">编辑</el-button>
+            <el-button type="text" size="small" @click="toDelete(scope.row.id)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
