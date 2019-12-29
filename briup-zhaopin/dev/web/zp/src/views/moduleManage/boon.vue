@@ -2,8 +2,8 @@
  * @Author: liuyr 
  * 福利管理页面
  * @Date: 2019-12-23 17:11:53 
- * @Last Modified by: mx
- * @Last Modified time: 2019-12-29 10:59:34
+ * @Last Modified by: luoya
+ * @Last Modified time: 2019-12-29 16:13:17
  */
 
 <template>
@@ -77,7 +77,7 @@
   :total="tableData.length">
 </el-pagination>
   <div style="margin-top: 20px">
-    <el-button class="delete" @click="toBatchDelete()" type="danger" size="mini">批量删除</el-button>
+    <el-button class="delete" @click="toBatchDelete()" type="danger" size="mini" plain>批量删除</el-button>
     
   </div>
 </template>
