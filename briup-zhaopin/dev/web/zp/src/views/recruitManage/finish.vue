@@ -248,11 +248,9 @@
         <!-- 描述 -->
         <el-tooltip placement="top">
           <div slot="content">请使用"/"对描述进行换行</div>
-            <el-form>
               <el-form-item prop="description" label="职位描述：" :label-width="formLabelWidth">
                     <el-input  type="textarea" :rows="4" v-model="currentEemployment.description"></el-input>
-              </el-form-item> 
-            </el-form>
+              </el-form-item>
         </el-tooltip>
       </el-form>
       
@@ -526,10 +524,14 @@ export default {
             if(this.welfare === ""){}else{
               this.currentEemployment.welfare = this.welfare
             }
-            console.log(this.currentEemployment);
             delete this.currentEemployment.startTime;
             delete this.currentEemployment.endTime;
             delete this.currentEemployment.publishTime;
+            this.currentEemployment.status = "审核通过";
+            if(this.currentEemployment.city == null){
+              this.currentEemployment.city = "成都";
+              this.currentEemployment.province = "四川";
+            }
             let rs = await saveOrUpdateEmployment(this.currentEemployment);
             if(rs.status === 200){
               config.successMsg(this,"保存成功！！！");

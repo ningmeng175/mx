@@ -228,13 +228,12 @@
           </el-col>
         </el-row>
         <!-- 时间 -->
-        <el-form-item label="招聘时间：" :label-width="formLabelWidth">
+        <el-form-item prop="timeValue" label="招聘时间：" :label-width="formLabelWidth">
           <template>
             <div class="block" style="width:400px">
               <el-date-picker
-                prop="timeValue"
                 style="width:400px"
-                v-model="timeValue"
+                v-model="currentEemployment.timeValue"
                 type="daterange"
                 range-separator="至"
                 start-placeholder="开始日期"
@@ -256,6 +255,7 @@
           </el-col>
         </el-row>
       </el-form>
+      
       
       <div slot="footer" class="dialog-footer">
         <el-button @click="toCancel('ruleForm')">取 消</el-button>
@@ -407,7 +407,7 @@ export default {
             { required: true, message: '请输入薪资水平', trigger: 'blur' }
           ],
           timeValue:[
-            { required: true, message: '请输入时间', trigger: 'blur' }
+            { required: true, message: '请输入时间', trigger: 'change' }
           ],
           welfare:[
             { required: true, message: '请输入福利', trigger: 'blur' }
@@ -531,7 +531,13 @@ export default {
             delete this.currentEemployment.startTime;
             delete this.currentEemployment.endTime;
             delete this.currentEemployment.publishTime;
+            this.currentEemployment.status = "审核通过";
+            if(this.currentEemployment.city == null){
+              this.currentEemployment.city = "成都";
+              this.currentEemployment.province = "四川";
+            }
             let rs = await saveOrUpdateEmployment(this.currentEemployment);
+            console.log(this.timeValue);
             if(rs.status === 200){
               config.successMsg(this,"保存成功！！！");
               this.editVisible = false;
@@ -794,12 +800,13 @@ export default {
           let rs = res.businessId;
           let data = await findBusinessById({id:rs});
           let name = data.data.name;
-          return name;
+          return name;  
       },
       // 分割描述
       splitDescription(res){
         let rs = res.description;
         this.descriptionList = rs.split("/");
+        console.log(res.description);
       },
       // 拼接公司name、value到一个数组中
       connectBusiness(){
