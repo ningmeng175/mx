@@ -584,25 +584,30 @@ export default {
       },
       // 关键字查询
       async search(){
-        if(this.option == "title"){
-          let res = await findEmploymentByTitle({title:this.input})
-          this.searchIfError(res,"查询不到结果");
-          this.setNull();
-        }else if(this.option == "job"){
-          let res = await findEmploymentByJob({job:this.input})
-          this.searchIfError(res,"查询不到结果");
-          this.setNull();
-        }else if(this.option == "welfare"){
-          let res = await findEmploymentByWelfare({welfare:this.input})
-          this.searchIfError(res,"查询不到结果");
-          this.setNull();
-        }else if(this.option == "city"){
-          let res = await findEmploymentByCity({city:this.input})
-          this.searchIfError(res,"查询不到结果");
-          this.setNull();
+        if(this.input==""){
+            this.searchIfError(null,"操作有误！");
+            this.setNull();
         }else{
-          this.searchIfError(null,"操作有误！");
-          this.setNull();
+          if(this.option == "title"){
+            let res = await findEmploymentByTitle({title:this.input})
+            this.searchIfError(res,"查询不到结果");
+            this.setNull();
+          }else if(this.option == "job"){
+            let res = await findEmploymentByJob({job:this.input})
+            this.searchIfError(res,"查询不到结果");
+            this.setNull();
+          }else if(this.option == "welfare"){
+            let res = await findEmploymentByWelfare({welfare:this.input})
+            this.searchIfError(res,"查询不到结果");
+            this.setNull();
+          }else if(this.option == "city"){
+            let res = await findEmploymentByCity({city:this.input})
+            this.searchIfError(res,"查询不到结果");
+            this.setNull();
+          }else{
+            this.searchIfError(null,"操作有误！");
+            this.setNull();
+          }
         }
       },
       // 分页功能
