@@ -2,8 +2,8 @@
  * @Author: luoya 
  * 用户列表页面
  * @Date: 2019-12-23 17:11:53 
- * @Last Modified by: luoya
- * @Last Modified time: 2019-12-28 22:14:48
+ * @Last Modified by: 0tt0
+ * @Last Modified time: 2019-12-29 10:51:06
  */
 <template>
   <div id="userList">
@@ -151,7 +151,7 @@
     <el-button @click="toBatchDelete" size="mini" type="danger" plain>批量删除</el-button>
     </div>
     <!-- 分页 -->
-    <div class="pagiDiv">
+    <div class="pageDiv">
     <el-pagination 
     @current-change="pageChange"
     :current-page.sync="currentPage" 
@@ -655,10 +655,10 @@ text-align: center;
   overflow: hidden;
   margin-top: 10px;
   .btnDiv {
-    float: right;
+    float: left;
   }
   .pageDiv {
-    float: left;
+    float: right;
   }
 }
 .frameDiv {
