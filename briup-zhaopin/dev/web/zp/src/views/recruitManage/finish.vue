@@ -3,7 +3,7 @@
  * 招聘完结页面
  * @Date: 2019-12-23 17:03:30 
  * @Last Modified by: 0tt0
- * @Last Modified time: 2019-12-28 19:53:14
+ * @Last Modified time: 2019-12-29 11:11:56
  */
 <template>
   <div id="recruitDoing" class="wrap">
@@ -16,16 +16,16 @@
     <!-- 搜索按钮 -->
     <div id="search">
       <div id="determineDiv">
-        <el-button icon="el-icon-search" size="medium" @click="search"></el-button>
+        <el-button icon="el-icon-search" size="mini" @click="search"></el-button>
       </div>
       <!-- 搜索input框 -->
       <div id="inputDiv">
-        <el-input v-model="input" placeholder="请输入内容" size="medium" style="width:200px" clearable @change="toOption"></el-input>
+        <el-input v-model="input" placeholder="请输入内容" size="mini" style="width:200px" clearable @change="toOption"></el-input>
       </div>
       <!-- 搜索下拉框 -->
       <div id="selectDiv">
         <template>
-          <el-select v-model="option" clearable placeholder="关键字" size="medium" style="width:100px" @change="toOption">
+          <el-select v-model="option" clearable placeholder="关键字" size="mini" style="width:100px" @change="toOption">
             <el-option
               v-for="(item,index) in optionData"
               :key="index"
@@ -38,7 +38,7 @@
       <!-- 职位类型 -->
       <div id="post_type">
         <template>
-        <el-select v-model="job" clearable placeholder="职位类型" size="medium" @change="toFind">
+        <el-select v-model="job" clearable placeholder="职位类型" size="mini" @change="toFind">
           <el-option
             v-for="(item,index) in jobData"
             :key="index"
@@ -47,7 +47,7 @@
           </el-option>
         </el-select>
         </template>
-        <el-button icon="el-icon-refresh" circle class="searchBtn" @click="flush"></el-button>
+        <el-button icon="el-icon-refresh" circle class="searchBtn" @click="flush" size="mini"></el-button>
       </div>
     </div>
     
@@ -110,7 +110,7 @@
       </div>
       <div class="btnDiv">
         <div >
-          <el-button @click="toBatchDelete">批量删除</el-button>
+          <el-button @click="toBatchDelete" size="mini" type="danger" plain>批量删除</el-button>
         </div>
       </div>
     </div>
